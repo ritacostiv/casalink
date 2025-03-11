@@ -1,0 +1,113 @@
+
+// Standard Button Styles
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &.btn-primary {
+    background-color: $primary-color;
+    color: $white;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  &.btn-outline {
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    background-color: transparent;
+
+    &:hover {
+      background-color: rgba($primary-color, 0.1);
+    }
+  }
+
+  &.btn-large {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+}
+
+// Link-style buttons
+.btn-link {
+  color: $primary-color;
+  padding: 8px 0;
+  position: relative;
+  text-decoration: none;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $primary-color;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+// Copy button
+.copy-btn {
+  background-color: $white;
+  border: 1px solid $border-color;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: $text-color;
+  font-size: 14px;
+
+  &:hover {
+    background-color: #f8f8f8;
+  }
+}
+
+// Share Buttons
+.share-buttons {
+  display: flex;
+  gap: 20px;
+
+  .share-button {
+    width: 75px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+
+    &.whatsapp {
+      // Your whatsapp styling
+    }
+
+    &.messenger {
+      // Your messenger styling
+    }
+
+    &.email {
+      // Your email styling
+    }
+
+    &:hover {
+      transform: scale(1.5);
+    }
+
+    img {
+      width: 42px;
+      height: 42px;
+      box-shadow: none;
+    }
+  }
+}
