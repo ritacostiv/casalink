@@ -16,6 +16,10 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def show
+    @collection = Collection.find(params[:id])
+  end
+  
   private
 
   def collection_params
