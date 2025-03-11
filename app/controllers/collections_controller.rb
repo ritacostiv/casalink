@@ -1,4 +1,5 @@
 class CollectionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   def index
     @collections = Collection.all
   end
@@ -19,7 +20,7 @@ class CollectionsController < ApplicationController
   def show
     @collection = Collection.find(params[:id])
   end
-  
+
   private
 
   def collection_params
