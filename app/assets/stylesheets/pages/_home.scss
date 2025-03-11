@@ -111,7 +111,7 @@
     }
 
     .feature-content {
-      flex: 1;
+      flex: 1.3;
       padding: 0 20px;
 
       h2 {
@@ -157,7 +157,7 @@
       text-align: center;
 
       img {
-        max-width: 100%;
+        max-width: 80%;
         height: auto;
         box-shadow: $box-shadow;
         border-radius: 8px;
@@ -206,7 +206,7 @@
           gap: 20px;
 
           .share-button {
-            width: 50px;
+            width: 75px;
             height: 50px;
             display: flex;
             align-items: center;
@@ -215,24 +215,24 @@
             transition: transform 0.3s ease;
 
             &.whatsapp {
-              background-color: #25D366;
+
             }
 
             &.messenger {
-              background-color: #0084FF;
+
             }
 
             &.email {
-              background-color: #EA4335;
+
             }
 
             &:hover {
-              transform: scale(1.1);
+              transform: scale(1.5);
             }
 
             img {
-              width: 24px;
-              height: 24px;
+              width: 42px;
+              height: 42px;
               box-shadow: none;
             }
           }
