@@ -11,12 +11,12 @@ $body-bg:                $light-gray;
 $font-size-base:         1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $blue;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+$body-color: $text-color;
+$primary:    $primary-color;  // Using your orange brand color
+$success:    $success;        // Using your success color from _colors.scss
+$info:       $info;           // Using your info color from _colors.scss
+$danger:     $danger;         // Using your danger color from _colors.scss
+$warning:    $warning;        // Using your warning color from _colors.scss
 
 // Buttons & inputs' radius
 $border-radius-sm:            .0625rem;

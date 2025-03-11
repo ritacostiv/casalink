@@ -1,117 +1,13 @@
 <div class="main-container">
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="decorative-circle circle-top-left"></div>
-    <div class="decorative-circle circle-top-right"></div>
-    <div class="decorative-circle circle-bottom-right"></div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="hero-content">
-            <div class="logo-large">
-              <div class="logo-icon">
-                <%= image_tag "house-solid.png", alt: "CasaLink house icon" %>
-              </div>
-              <h1>CasaLink</h1>
-            </div>
-            <div class="hero-text">
-              <p>Finding the perfect home is easier when you collaborate.</p>
-              <p>Share, compare, and decide together with friends and family.</p>
-            </div>
-            <div class="hero-cta">
-              <a href="#" class="btn btn-primary btn-large">Begin</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Hero Section -->
+  <%= render 'shared/hero_landing' %>
 
   <!-- Features Section -->
-  <section class="features">
-    <!-- Feature 1 -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="feature-row">
-            <div class="feature-content">
-              <h2>Add your property links</h2>
-              <p>Easily add properties from popular platforms like Idealista, Zillow, and more. Just paste the URL and CasaLink will organize all the details for you.</p>
-              <p>No more switching between tabs or taking screenshots.</p>
-              <a href="#" class="btn btn-link">Learn more</a>
-            </div>
-            <div class="feature-image">
-              <!-- icon here -->
-              <%= image_tag "add-property-feature.png", alt: "Add properties feature" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 2: Collaborate -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="feature-row collaborate">
-            <div class="feature-image">
-              <!-- Feature image here -->
-              <%= image_tag "add-feature.svg", alt: "Collaboration feature" %>
-            </div>
-            <div class="feature-content">
-              <h2>Collaborate in real-time</h2>
-              <p>Share your thoughts, rate properties, and make decisions together. Add comments, use mentions, and get notifications when others interact with your saved properties.</p>
-              <p>Perfect for roommates, couples, or families searching together.</p>
-              <a href="#" class="btn btn-link">Learn more</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feature 3 -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="feature-row">
-            <div class="feature-content">
-              <h2>Share with anyone, anywhere</h2>
-              <p>Generate a shareable link to your collection that anyone can access, even without an account.</p>
-              <p>Send via WhatsApp, email, or any messaging app. Perfect for sharing with real estate agents or family.</p>
-              <a href="#" class="btn btn-link">Learn more</a>
-            </div>
-            <div class="feature-image share-feature">
-              <div class="link-display">
-                <span class="link-text">https://casalink.com/barcelona-apt</span>
-                <button class="copy-btn">Copy</button>
-              </div>
-              <div class="share-buttons">
-                <a href="#" class="share-button whatsapp"><%= image_tag "whats-app-icon.png", alt: "WhatsApp" %></a>
-                <a href="#" class="share-button messenger"><%= image_tag "messaging-icon.png", alt: "Messenger" %></a>
-                <a href="#" class="share-button email"><%= image_tag "email-icon.png", alt: "Email" %></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <%= render 'shared/features_landing' %>
 
   <!-- Call to Action Section -->
   <section class="cta-section">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-9">
-          <h2>Create your CasaLink today</h2>
-          <p>Start organizing your property search in minutes.</p>
-          <p>No credit card required. Free for personal use.</p>
-          <div class="cta-buttons">
-            <a href="#" class="btn btn-primary btn-large">Begin</a>
-            <a href="#" class="btn btn-outline btn-large">Sign up</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'shared/cta_landing' %>
   </section>
 </div>
