@@ -1,1 +1,337 @@
-// Specific CSS for your home-page
+
+// Main Container
+.main-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+// Hero Section
+.hero {
+  background-color: $background-color;
+  padding: 80px 0;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+
+  .decorative-circle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba($primary-color, 0.5);
+    box-shadow: $box-shadow;
+
+    &.circle-top-left {
+      width: 120px;
+      height: 120px;
+      top: 50px;
+      left: 150px;
+    }
+
+    &.circle-top-right {
+      width: 80px;
+      height: 80px;
+      top: 30px;
+      right: 150px;
+      background-color: rgba($primary-color, 0.5);
+    }
+
+    &.circle-bottom-right {
+      width: 150px;
+      height: 150px;
+      bottom: -50px;
+      right: 100px;
+      background-color: rgba($primary-color, 0.5);
+    }
+  }
+
+  .hero-content {
+    margin: 0 auto;
+    z-index: 1;
+    position: relative;
+
+    .logo-large {
+      margin-bottom: 30px;
+
+      .logo-icon {
+        display: inline-block;
+        margin-bottom: 10px;
+
+        img {
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 36px;
+        color: $text-color;
+      }
+    }
+
+    .hero-text {
+      margin-bottom: 30px;
+
+      p {
+        margin: 8px 0;
+        font-size: 18px;
+        color: $light-text;
+      }
+    }
+
+    .hero-cta {
+      margin-top: 20px;
+    }
+  }
+}
+
+// Features Section
+.features {
+  padding: 40px 0;
+
+  .feature-row {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 60px 0;
+
+    &.collaborate {
+      background-color: $background-color;
+      margin-left: -100%;
+      margin-right: -100%;
+      padding-left: 100%;
+      padding-right: 100%;
+
+      .feature-image {
+        order: 1; // Ensure image is on the left
+      }
+
+      .feature-content {
+        order: 2; // Ensure content is on the right
+      }
+    }
+
+    .feature-content {
+      flex: 1;
+      padding: 0 20px;
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: $text-color;
+      }
+
+      p {
+        font-size: 16px;
+        color: $light-text;
+        margin-bottom: 10px;
+      }
+
+      .btn-link {
+        color: $primary-color;
+        padding: 8px 0;
+        position: relative;
+        text-decoration: none;
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 5px;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: $primary-color;
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover:after {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+      }
+    }
+
+    .feature-image {
+      flex: 1;
+      text-align: center;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        box-shadow: $box-shadow;
+        border-radius: 8px;
+      }
+
+      &.share-feature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .link-display {
+          display: flex;
+          align-items: center;
+          background-color: $background-color;
+          padding: 12px 20px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+          width: 80%;
+
+          .link-text {
+            flex: 1;
+            font-size: 14px;
+            color: $light-text;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .copy-btn {
+            background-color: $white;
+            border: 1px solid $border-color;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            color: $text-color;
+            font-size: 14px;
+
+            &:hover {
+              background-color: #f8f8f8;
+            }
+          }
+        }
+
+        .share-buttons {
+          display: flex;
+          gap: 20px;
+
+          .share-button {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+
+            &.whatsapp {
+              background-color: #25D366;
+            }
+
+            &.messenger {
+              background-color: #0084FF;
+            }
+
+            &.email {
+              background-color: #EA4335;
+            }
+
+            &:hover {
+              transform: scale(1.1);
+            }
+
+            img {
+              width: 24px;
+              height: 24px;
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Call to Action Section
+.cta-section {
+  background-color: $background-color;
+  text-align: center;
+  padding: 80px 0;
+
+  h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: $text-color;
+  }
+
+  p {
+    font-size: 18px;
+    color: $light-text;
+    margin: 8px 0;
+  }
+
+  .cta-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+// Button Styles
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &.btn-primary {
+    background-color: $primary-color;
+    color: $white;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  &.btn-outline {
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    background-color: transparent;
+
+    &:hover {
+      background-color: rgba($primary-color, 0.1);
+    }
+  }
+
+  &.btn-large {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+}
+
+// Media Queries for Responsive Design
+@media (max-width: 768px) {
+  .features {
+    .feature-row {
+      flex-direction: column;
+
+      &.collaborate {
+        .feature-image,
+        .feature-content {
+          order: 0; // Reset order for mobile
+        }
+
+        .feature-image {
+          margin-bottom: 20px;
+        }
+      }
+
+      .feature-content,
+      .feature-image {
+        width: 100%;
+        padding: 10px;
+      }
+    }
+  }
+
+  .cta-section {
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}
