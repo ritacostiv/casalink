@@ -9,12 +9,12 @@
 #   end
 
 puts "starting seeds"
-Property.destroy_all
 User.destroy_all
 Collection.destroy_all
-user = User.create(email: "miguel@casalink.com" )
-collection = Collection.create(name: "Alvalade", user_id: user[:id])
-property1 = Property.create(name: "T4 for sale",
+Property.destroy_all
+user = User.create!(email: "miguel@casalink.com", password: "123456")
+collection = Collection.create!(name: "Alvalade", user: user)
+property1 = Property.create!(name: "T4 for sale",
                             price: "865.000€",
                             url: "https://www.idealista.pt/imovel/33353664/",
                             address: "Avenida dos Estados Unidos da America",
@@ -22,11 +22,11 @@ property1 = Property.create(name: "T4 for sale",
                             size: "216m²",
                             elevator: true,
                             garage: false,
-                            collection_id: collection[:id])
+                            collection: collection)
 
 puts "#{property1.name} created"
 
-property2 = Property.create(name: "T3 for sale",
+property2 = Property.create!(name: "T3 for sale",
                             price: "620.000€",
                             url: "https://www.idealista.pt/imovel/34040390/",
                             address: "Avenida Gago Coutinho",
@@ -34,11 +34,11 @@ property2 = Property.create(name: "T3 for sale",
                             size: "169m²",
                             elevator: true,
                             garage: false,
-                            collection_id: collection[:id])
+                            collection: collection)
 
 puts "#{property2.name} created"
 
-property3 = Property.create(name: "Amazing penthouse",
+property3 = Property.create!(name: "Amazing penthouse",
                             price: "855.000€",
                             url: "https://www.idealista.pt/imovel/33961824/",
                             address: "Avenida da Republica",
@@ -46,7 +46,7 @@ property3 = Property.create(name: "Amazing penthouse",
                             size: "190m²",
                             elevator: true,
                             garage: true,
-                            collection_id: collection[:id])
+                            collection: collection)
 
 puts "#{property3.name} created"
 puts "seeding finished"
