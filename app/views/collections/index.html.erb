@@ -1,35 +1,78 @@
-<h1>My Collections</h1>
+<h1 class="text-center">My Collections</h1>
 <% @collections.each do |collection|%>
-<p><%= collection.name %></p>
+<p><% collection.name %></p>
 <% end %>
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa-solid fa-plus"></i></button>
+<%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa-solid fa-plus"></i></button> %>
+
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">New Collection</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="container">
+  <div class="row">
+    <!-- First Card with Modal -->
+    <div class="col-md-6">
+      <div class="card" style="width: 14rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Create a collection</h5>
+          <!-- Button to trigger the modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            +
+          </button>
+        </div>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Name:</label>
-            <input type="text" class="form-control" id="recipient-name">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">New Collection</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Name:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Description:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save</button>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Description:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        </div>
       </div>
     </div>
+
+      <% @collections.each do |collection| %>
+        <div class="col-md-6">
+          <div class="card shadow-sm" style="width: 18rem; border: none; margin-bottom: 20px; border-radius: 15px; overflow: hidden;">
+            <!-- Image -->
+            <img
+              src="https://i.maxwork.pt/l-feat/listings/12599/6937768/cdb37419-c731-4b0c-94c4-9b308bbf2ca2.jpg"
+              class="card-img-top"
+              alt="Property Image"
+              style="height: 200px; object-fit: cover;"
+            >
+            <!-- Card Body -->
+            <div class="card-body" style="background-color: #f8f9fa; padding: 20px;">
+              <!-- Collection Name -->
+              <h5 class="card-title" style="font-weight: 600; color: #333;">
+                <%= collection.name %>
+              </h5>
+              <!-- Add Button -->
+              <button type="button" class="btn btn-primary btn-sm" style="width: 100%; border-radius: 20px;">
+                Add to Collection
+              </button>
+            </div>
+          </div>
+        </div>
+      <% end %>
   </div>
 </div>
