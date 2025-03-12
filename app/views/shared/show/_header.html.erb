@@ -1,6 +1,6 @@
   <!-- Header section -->
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <h1 style="font-size: 32px; margin: 0; color: #333;">NYC Apartment Search</h1>
+    <h1 style="font-size: 32px; margin: 0; color: #333;"><%= collection.name %></h1>
 
     <div style="display: flex; gap: 10px;">
       <button style="background-color: #F2994A; color: white; width: 40px; height: 40px; border: none; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 20px;">+</button>
@@ -14,7 +14,7 @@
 
   <!-- Creator info -->
   <div style="margin-bottom: 15px; color: #666;">
-    Created by <a href="#" style="color: #3366cc; text-decoration: none;">Simão</a> | 3 Properties | <a href="#" style="color: #3366cc; text-decoration: none;">2 Collaborators</a>
+    Created by <a href="#" style="color: #3366cc; text-decoration: none;"><%= collection.user.first_name %></a> | <%= collection.properties.count %> Properties | <a href="#" style="color: #3366cc; text-decoration: none;">2 Collaborators</a>
   </div>
 
   <!-- Filter buttons -->

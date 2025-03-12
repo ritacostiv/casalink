@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="collection-details">
-        <h3 class="collection-name"><%= collection.name %></h3>
+        <h3 class="collection-name"><%= link_to collection.name, collection_path(collection), style: "text-decoration: none;" %></h3>
         <div class="collection-actions">
           <div class="add-property-btn">+</div>
           <span class="add-property-text">Add Property</span>

@@ -19,8 +19,7 @@
   <!-- New and Existing Collection Cards -->
   <div class="collections-grid">
     <%= render 'create_new_collection' %>
-    <%= render 'existing_collections' %>
-    <%= render 'existing_collections' %>
+    <%= render 'existing_collections', collection: @collection %>
   </div>
 
   <!-- Recent Activity -->
