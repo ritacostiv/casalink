@@ -1,37 +1,63 @@
-
+// app/assets/stylesheets/components/_recentactivity.scss //
 .recent-activity {
-  margin-top: 3rem;
-}
+  margin-top: 40px;
 
-.activity-item {
-  display: flex;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
+  h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 30px;
+  }
 
-.activity-content {
-  flex: 1;
-  margin-left: 15px;
-}
+  .activity-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
 
-.user-name {
-  font-weight: 600;
-  margin-right: 5px;
-}
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
 
-.activity-action {
-  color: #666;
-  margin-right: 5px;
-}
+    .avatar-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: white;
+    }
 
-.collection-link {
-  color: #F8B195;
-  font-weight: 500;
-}
+    .activity-content {
+      flex-grow: 1;
+    }
 
-.activity-details {
-  color: #999;
-  font-size: 14px;
-  margin-top: 5px;
+    .activity-header {
+      margin-bottom: 5px;
+
+      .user-name {
+        font-weight: 600;
+        margin-right: 5px;
+      }
+
+      .activity-action {
+        color: #666;
+        margin-right: 5px;
+      }
+
+      .collection-link {
+        color: #FFA500;
+        font-weight: 500;
+      }
+    }
+
+    .activity-details {
+      color: #666;
+      font-size: 14px;
+    }
+  }
 }

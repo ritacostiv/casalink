@@ -1,22 +1,27 @@
+  <!-- app/views/collections/_index.html.erb -->
 
   <!-- Page Title -->
-  <div class="dashboard-title"> <h1 class="text-center">
-  <%= "#{current_user.first_name}'s Collections" %></h1>
+  <div class="collections-header">
+  <h1><%= "#{current_user.first_name}'s Collections" %></h1>
   </div>
 
-  <%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa-solid fa-plus"></i></button> %>
+  <!-- Collection Cards + Recent Activity Container -->
+  <div class="container">
+  <div class="row justify-content-center">
+  <div class="col-md-12">
 
-<div class="container">
-  <div class="row">
 
-  <!-- Create New Collection Card -->
-  <%= render 'create_new_collection' %>
 
-  <!-- View My Existings Collections Card -->
-  <%= render 'my_existing_collections' %>
+  <!-- New and Existing Collection Cards -->
+  <div class="collections-grid">
+    <%= render 'create_new_collection' %>
+    <%= render 'existing_collections' %>
+    <%= render 'existing_collections' %>
   </div>
 
   <!-- Recent Activity -->
   <%= render 'recent_activity' %>
 
-</div>
+  </div>
+  </div>
+  </div>
