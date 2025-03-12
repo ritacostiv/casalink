@@ -1,5 +1,21 @@
 // app/assets/stylesheets/pages/_index.scss //
 
 @import "home";
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-weight: bold;
+  color: #333;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
 @import "show_collection_header";
 @import "show_existingcollection";
+
