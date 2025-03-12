@@ -9,10 +9,10 @@
 #   end
 
 puts "starting seeds"
-User.destroy_all
-Collection.destroy_all
 Property.destroy_all
-user = User.create!(email: "miguel@casalink.com", password: "123456")
+Collection.destroy_all
+User.destroy_all
+user = User.create!(email: "miguel@casalink.com", password: "123456", first_name: "Miguel", last_name: "Rodrigues")
 collection = Collection.create!(name: "Alvalade", user: user)
 property1 = Property.create!(name: "T4 for sale",
                             price: "865.000€",
