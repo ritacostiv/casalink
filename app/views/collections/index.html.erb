@@ -1,92 +1,22 @@
-<h1 class="text-center">My Collections</h1>
-<% @collections.each do |collection|%>
-  <p><% collection.name %></p>
-<% end %>
 
-<%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa-solid fa-plus"></i></button> %>
+  <!-- Page Title -->
+  <div class="dashboard-title"> <h1 class="text-center">
+  <%= "#{current_user.first_name}'s Collections" %></h1>
+  </div>
 
-
-<!-- Modal -->
+  <%# <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa-solid fa-plus"></i></button> %>
 
 <div class="container">
   <div class="row">
-    <!-- First Card with Modal -->
-    <div class="col-md-6">
-      <div class="card" style="width: 14rem;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Create a collection</h5>
-          <!-- Button to trigger the modal -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            +
-          </button>
-        </div>
-      </div>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <!-- New Collection Collapsable-->
-            <p class="d-inline-flex gap-1 mb-4 mt-4" style="justify-content: center;">
-              <button class="collapsable-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                New Collection
-              </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                    <!-- Simple form -->
-                <%= simple_form_for @collection do |f| %>
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">New Collection</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                      <%= f.input :name %>
-                      <%= f.input :description %>
-                  </div>
-                  <div class="modal-footer">
-                    <%= link_to "Cancel", collections_path, class:"btn btn-secondary", data: { "bs-dismiss" => "modal" } %>
-                    <%= f.button :submit, "Save", class:"btn btn-primary"%>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-            <!-- Property Collapsable-->
-            <p class="d-inline-flex gap-1 mb-4 mt-4" style="justify-content: center;">
-              <button class="collapsable-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Add Property to Collection
-              </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <% @collections.each do |collection| %>
-        <div class="card shadow-sm" style="width: 18rem; border: none; margin-bottom: 20px; border-radius: 15px; overflow: hidden;">
-          <!-- Image -->
-          <img
-            src="https://i.maxwork.pt/l-feat/listings/12599/6937768/cdb37419-c731-4b0c-94c4-9b308bbf2ca2.jpg"
-            class="card-img-top"
-            alt="Property Image"
-            style="height: 200px; object-fit: cover;"
-          >
-          <!-- Card Body -->
-          <div class="card-body" style="background-color: #f8f9fa; padding: 20px;">
-            <!-- Collection Name -->
-            <h5 class="card-title" style="font-weight: 600; color: #333;">
-              <%= collection.name %>
-            </h5>
-            <!-- Add Button -->
-            <button type="button" class="btn btn-primary btn-sm" style="width: 100%; border-radius: 20px;">
-              Add to Collection
-            </button>
-          </div>
-        </div>
-      <% end %>
-    </div>
+
+  <!-- Create New Collection Card -->
+  <%= render 'create_new_collection' %>
+
+   <!-- View My Existings Collections Card -->
+  <%= render 'my_existing_collections' %>
   </div>
+
+  <!-- Recent Activity -->
+  <%= render 'recent_activity' %>
+
 </div>

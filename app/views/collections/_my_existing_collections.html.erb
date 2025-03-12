@@ -1,0 +1,32 @@
+      <div class="existing-collections-cards col-md-6">
+      <% @collections.each do |collection| %>
+      <div class="card shadow-sm" style="width: 18rem; border: none; margin-bottom: 20px; border-radius: 15px; overflow: hidden;">
+
+
+      <!-- Image -->
+      <img
+        src="https://i.maxwork.pt/l-feat/listings/12599/6937768/cdb37419-c731-4b0c-94c4-9b308bbf2ca2.jpg"
+        class="card-img-top"
+        alt="Property Image"
+        style="height: 200px; object-fit: cover;">
+
+
+      <!-- Card Body -->
+      <div class="card-body" style="background-color: #f8f9fa; padding: 20px;">
+
+
+      <!-- Collection Name -->
+      <h5 class="card-title" style="font-weight: 600; color: #333;">
+        <%= collection.name %>
+      </h5>
+
+
+        <!-- Add Property Button -->
+        <button type="button" class="btn btn-primary btn-sm" style="width: 100%; border-radius: 20px;">
+          Add Property
+        </button>
+
+      </div>
+    </div>
+  <% end %>
+</div>
