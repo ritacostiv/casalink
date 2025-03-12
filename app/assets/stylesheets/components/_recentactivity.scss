@@ -1,0 +1,63 @@
+// app/assets/stylesheets/components/_recentactivity.scss //
+.recent-activity {
+  margin-top: 40px;
+
+  h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  .activity-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .avatar-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      color: white;
+    }
+
+    .activity-content {
+      flex-grow: 1;
+    }
+
+    .activity-header {
+      margin-bottom: 5px;
+
+      .user-name {
+        font-weight: 600;
+        margin-right: 5px;
+      }
+
+      .activity-action {
+        color: #666;
+        margin-right: 5px;
+      }
+
+      .collection-link {
+        color: #FFA500;
+        font-weight: 500;
+      }
+    }
+
+    .activity-details {
+      color: #666;
+      font-size: 14px;
+    }
+  }
+}
