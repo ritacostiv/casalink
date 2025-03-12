@@ -3,7 +3,7 @@
 <div class="main-container" style="max-width: 1400px; margin: 0 auto; padding: 20px;">
 
   <!-- Header section -->
-  <%= render 'shared/show/header' %>
+  <%= render 'shared/show/header', collection: @collection, collections: @collections %>
 
   <!-- Content area -->
   <div class="content area" style="display: flex; gap: 20px;">
@@ -11,14 +11,10 @@
   <!-- Left column - Property cards -->
   <div class="left column" style="flex: 0 0 40%; overflow-y: auto;">
     <div class="properties-list" style="flex: 0 0 40%; overflow-y: auto; padding-left: 0px;">
-
-      <!-- Property Cards  -->
-      <%= render 'shared/show/propertycard' %>
-      <%= render 'shared/show/propertycard' %>
-      <%= render 'shared/show/propertycard' %>
-      <%= render 'shared/show/propertycard' %>
-      </div>
+    <!-- Property Cards  -->
+      <%#= render 'shared/show/propertycard', collection: @collection, properties: @properties %>
     </div>
+  </div>
 
   <!-- Right column - Details -->
   <%= render 'shared/show/rightcolumn' %>
