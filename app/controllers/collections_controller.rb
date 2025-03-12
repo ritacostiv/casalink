@@ -19,6 +19,7 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params[:id])
+    @property = Property.new
     @properties = Property.all
     @collection.user = current_user
   end
