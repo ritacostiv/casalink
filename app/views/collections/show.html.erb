@@ -12,7 +12,10 @@
   <div class="left column" style="flex: 0 0 40%; overflow-y: auto;">
     <div class="properties-list" style="flex: 0 0 40%; overflow-y: auto; padding-left: 0px;">
     <!-- Property Cards  -->
-      <%= render 'shared/show/propertycard', collection: @collection, properties: @properties %>
+      <% @collection.properties.each do |property| %>
+      <%= render 'shared/show/propertycard', collection: @collection, properties: @properties, property: property %>
+      <% end %>
+      <%= render 'shared/show/propertycard2', collection: @collection, properties: @properties %>
     </div>
   </div>
 
