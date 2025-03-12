@@ -15,16 +15,6 @@
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
 
-
-    <!-- New Collection Collapsable-->
-    <p class="d-inline-flex gap-1 mb-4 mt-4" style="justify-content: center;">
-    <button class="collapsable-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    New Property
-    </button>
-    </p>
-    <div class="collapse" id="collapseExample">
-    <div class="card card-body">
-
     <!-- Simple form -->
     <%= simple_form_for [@collection, @property] do |f| %>
     <div class="modal-header">
@@ -40,8 +30,6 @@
       <%= f.button :submit, "Save", class:"btn btn-primary"%>
     </div>
     <% end %>
-    </div>
-    </div>
     </div>
     </div>
   </div>
