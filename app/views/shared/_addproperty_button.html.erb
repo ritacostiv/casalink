@@ -25,6 +25,12 @@
     <div class="modal-body">
         <%= f.input :name %>
         <%= f.input :url %>
+        <%= f.input :size %>
+        <%= f.input :price %>
+        <%= f.input :address %>
+        <%= f.input :typology, collection: ["T0", "T1", "T2", "T3", "T4", "T5", "T6"] %>
+        <%= f.input :elevator %>
+        <%= f.input :garage %>
         <%#= f.input :url, as: :hidden, input_html: { id: "idealista_url_#{collection.id}" } %>
 
     </div>
