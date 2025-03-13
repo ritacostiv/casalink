@@ -54,17 +54,16 @@
 
       <!-- Amenities - first row -->
       <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; margin-top: 15px;">
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;">Doorman</span>
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;">Pool</span>
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;">Rooftop</span>
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;">Gym</span>
+        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.address%></span>
+        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.price %></span>
+        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
       </div>
 
       <!-- Amenities - second row -->
       <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;">Doorman</span>
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;">Pool</span>
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;">Gym</span>
+        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.typology %></span>
+        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.size %></span>
+        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
       </div>
     </div>
   </div>
