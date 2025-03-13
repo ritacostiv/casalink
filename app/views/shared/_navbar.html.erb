@@ -11,12 +11,34 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav align-items-center">
-        <% if user_signed_in? %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <% if user_signed_in? %>
+        <div class="navbar-nav mx-auto">
+          <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="form-control search-input" placeholder="Search">
+          </div>
+        </div>
+
+        <!--Dashboard Button-->
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item me-3">
+            <%= link_to collections_path, class: "nav-link dashboard-link" do %>
+              <i class="fal fa-th-large"></i> My Collections
+            <% end %>
+          </li>
+
+        <!--Notifications Button-->
+          <li class="nav-item me-3">
+            <a href="#" class="nav-link notification-link">
+              <i class="fas fa-bell"></i>
+            </a>
+          </li>
+
+        <!--Initials Dropdown-->
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle text-decoration-none" id="navbarDropdown"
-               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="avatar-circle" style="background-color: <%= avatar_color(current_user) %>;">
                 <span class="initials">
                   <%= "#{current_user.first_name[0]}#{current_user.last_name[0]}".upcase %>
@@ -27,12 +49,14 @@
               <%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
-        </div>
-
-        <% else %>
+          </li>
+        </ul>
+      <% else %>
+        <div class="navbar-nav ms-auto">
           <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary login-button me-2" %>
           <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary signup-button" %>
-        <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

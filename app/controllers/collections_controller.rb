@@ -17,6 +17,11 @@ class CollectionsController < ApplicationController
     end
   end
 
+  def destroy
+    @property.destroy
+    redirect_to collection_path(@property.collection), notice: "Property was successfully deleted."
+  end
+
   def show
     @collection = Collection.find(params[:id])
     @property = Property.new
