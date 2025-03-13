@@ -31,6 +31,3 @@ module Casalink
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
-
-import Rails from "@rails/ujs"
-Rails.start()
