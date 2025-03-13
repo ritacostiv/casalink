@@ -52,6 +52,7 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "nokogiri"
 gem 'httparty'
+gem 'geocoder'
 
 
 group :development, :test do
