@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :collections, only: [:index, :create, :show] do
     resources :properties, only: [:create, :destroy]
   end
+  post '/scrape', to: 'scrapers#scrape', as: 'scrape'
 end

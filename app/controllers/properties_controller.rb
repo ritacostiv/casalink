@@ -11,6 +11,13 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def destroy
+    @collection = Collection.find(params[:collection_id])
+    @property = @collection.properties.find(params[:id])
+    @property.destroy
+    redirect_to collection_path(@collection), notice: "Property deleted"
+  end
+
   private
 
   def property_params
