@@ -1,5 +1,6 @@
 class CollectionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
+
   def index
     @collections = Collection.all
     @collection = Collection.new
@@ -17,16 +18,12 @@ class CollectionsController < ApplicationController
     end
   end
 
-  def destroy
-    @property.destroy
-    redirect_to collection_path(@property.collection), notice: "Property was successfully deleted."
-  end
-
   def show
     @collection = Collection.find(params[:id])
+    @properties = @collection.properties # Instead of loading all properties, load only those belonging to the collection
     @property = Property.new
-    @properties = Property.all
-    @collection.user = current_user
+    #@properties = Property.all
+    #@collection.user = current_user #<-- Remove this line if you didn't mean to reassign ownership
   end
 
   private

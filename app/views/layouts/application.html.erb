@@ -1,3 +1,5 @@
+  <!-- app/views/layouts/application.html.erb -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,14 +9,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" %>
     <%= javascript_importmap_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
+  <body>
+  <%= render "shared/navbar" %>
+  <%= render "shared/flashes" %>
+  <%= javascript_include_tag "https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" %>
 
-    <%= yield %>
+  <%= yield %>
   </body>
 </html>
