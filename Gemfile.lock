@@ -154,7 +154,7 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.1.0)
+    importmap-rails (1.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -343,7 +343,7 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   geocoder
   httparty
-  importmap-rails
+  importmap-rails (~> 1.2.3)
   jbuilder
   nokogiri
   pg (~> 1.1)

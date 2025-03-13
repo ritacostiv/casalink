@@ -24,6 +24,14 @@ class CollectionsController < ApplicationController
     @property = Property.new
     #@properties = Property.all
     #@collection.user = current_user #<-- Remove this line if you didn't mean to reassign ownership
+    @markers = @properties.geocoded.map do |property|
+      {
+        lat: property.latitude,
+        lng: property.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {property: property}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   private
