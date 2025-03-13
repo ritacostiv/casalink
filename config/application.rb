@@ -32,5 +32,3 @@ module Casalink
   end
 end
 
-import Rails from "@rails/ujs"
-Rails.start()
