@@ -25,11 +25,17 @@
     </div>
       <!-- Delete Button -->
       <div class="delete-property-button">
-        <%= link_to "🗑️",
+        <%= button_to "🗑️",
         collection_property_path(property.collection, property),
         method: :delete,
-        data: { confirm: "Are you sure you want to delete this property?" },
-        style: "text-decoration: none; color: #666666; font-size: 15px;" %>
+        form: {
+        data: {
+          turbo_confirm: "Are you sure you want to delete this property?",
+          turbo_method: :delete
+        }
+      },
+      class: "delete-btn",
+      style: "text-decoration: none; color: #666666; font-size: 15px; background: none; border: none; padding: 0;" %>
       </div>
 
       <!-- Property Rating  -->

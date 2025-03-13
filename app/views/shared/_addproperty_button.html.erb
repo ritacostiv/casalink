@@ -1,4 +1,4 @@
-  
+
   <!-- app/views/shared/_addproperty_button.html.erb -->
 
     <div class="col-md-6">
@@ -25,10 +25,13 @@
     <div class="modal-body">
         <%= f.input :name %>
         <%= f.input :url %>
+        <%#= f.input :url, as: :hidden, input_html: { id: "idealista_url_#{collection.id}" } %>
+
     </div>
     <div class="modal-footer">
       <%= link_to "Cancel", collections_path, class:"btn btn-secondary", data: { "bs-dismiss" => "modal" } %>
-      <%= f.button :submit, "Save", class:"btn btn-primary"%>
+      <%= f.button :submit, "Next", class:"btn btn-primary"%>
+      <%#= f.button :submit, "Next", class: "btn btn-primary", formaction: scrape_path, formmethod: :post %>
     </div>
     <% end %>
     </div>
