@@ -2,7 +2,7 @@
 <div  style="display: flex; align-items: center;">
   <h1 style="font-size: 32px; margin: 0; color: #333; margin-right: 16px;"><%= collection.name %></h1>
   <div style="display: flex; align-items: center;">
-    <%= render "shared/addproperty_button" %>
+    <%= render "shared/addproperty_button", collection: collection, property: Property.new %>
     <%= render "shared/share_button" %>
   </div>
 </div>
