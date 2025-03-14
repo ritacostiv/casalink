@@ -24,3 +24,9 @@
 
 </div>
 </div>
+
+<form action="/search" method="get" class="d-flex align-items-center mb-4">
+  <input type="hidden" name="collection_id" value="<%= @collection.id %>">
+  <input type="text" name="query" class="form-control" placeholder="Search within this collection" value="<%= params[:query] %>">
+  <button type="submit" class="btn btn-primary ms-2">Search</button>
+</form>
