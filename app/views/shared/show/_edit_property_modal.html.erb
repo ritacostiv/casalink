@@ -1,0 +1,31 @@
+<!--app/views/shared/show/_edit_property_modal.html.erb -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="editPropertyModal<%= property.id %>" tabindex="-1" aria-labelledby="editPropertyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <!-- Simple form -->
+      <%= simple_form_for [collection, property] do |f| %>
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editPropertyModalLabel">Edit Property</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= f.input :name %>
+          <%= f.input :url %>
+          <%= f.input :address %>
+          <%= f.input :price %>
+          <%= f.input :size, label: "size (m²)" %>
+          <%= f.input :typology, label: "# of rooms" %>
+          <%= f.input :elevator %>
+          <%= f.input :garage %>
+        </div>
+        <div class="modal-footer">
+          <%= link_to "Cancel", "#", class: "btn btn-secondary", data: { "bs-dismiss": "modal" } %>
+          <%= f.button :submit, "Save Changes", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

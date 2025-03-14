@@ -1,3 +1,5 @@
+#config/routed.rb
+
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :collections, only: [:index, :create, :show] do
-    resources :properties, only: [:create, :destroy]
+    resources :properties, only: [:create, :destroy, :edit, :update]
   end
   post '/scrape', to: 'scrapers#scrape', as: 'scrape'
 

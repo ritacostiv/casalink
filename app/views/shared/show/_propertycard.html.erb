@@ -37,39 +37,49 @@
         </div>
       </div>
 
-      <!-- Property Comments  -->
-      <div class="property-comments-button">
-        <a href="#">
-          <span class="comments-icon">💬</span>
-          3 comments
-        </a>
-      </div>
+        <!-- Edit Details  -->
+        <div class="edit-details-button">
+        <!--old <a href="#" style="color:rgb(235, 110, 8); text-decoration: none; font-size: 14px;">
+        Edit Details</a>-->
+         <a href="#" data-bs-toggle="modal" data-bs-target="#editPropertyModal<%= property.id %>" style="color:rgb(235, 110, 8); text-decoration: none; font-size: 12px;">
+        ✏️ Edit</a>
+        </div>
 
-      <!-- Amenities -->
-      <div class="property-amenities-row">
-        <span class="property-amenities-tag">€<%= property.price %></span>
+        <!-- Amenities -->
+        <div class="property-amenities-row">
+        <span class="property-amenities-tag">€<%= number_with_delimiter(property.price.to_s.gsub(/[^\d.]/, '').to_f.round) %></span>
         <span class="property-amenities-tag"><%= property.size %>m²</span>
-        <span class="property-amenities-tag">T<%= property.typology %></span>
-      </div>
+        </div>
+
+        
+        
+     
 
       <div class="property-amenities-row">
+        <span class="property-amenities-tag">T<%= property.typology %></span>
         <span class="property-amenities-tag"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
         <span class="property-amenities-tag"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
-      </div>
+        </div>
+
     </div>
   </div>
 
-  <!-- Bottom section with attribution and view details link -->
-  <div style="display: flex; justify-content: space-between; padding-top: 15px; margin-top: 10px; border-top: 1px solid #f0f0f0;">
+    <!-- Bottom section: link-->
+    <div style="display: flex; justify-content: space-between; padding-top: 15px; margin-top: 10px; border-top: 1px solid #f0f0f0;">
     <div style="display: flex; align-items: center;">
-     <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
+    <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
     <%= link_to "🔗 by #{collection.user.first_name} on", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
     <span style="margin-left: 5px; color: #666666; font-size: 14px;"><%= property.created_at.strftime("%b %d, %H:%M") %></span>
     </div>
     </div>
 
-    <div class="view-details" style="display: flex; align-items: center;">
-      <a href="#" style="color: #F2994A; text-decoration: none; font-size: 14px;">View details</a>
+    <!-- Bottom section: property comments -->
+    <div class="property-comments-button" style="display: flex; align-items: center;">
+    <a href="#">
+    <span class="comments-icon">💬</span> 3 comments </a>
     </div>
+
+
   </div>
+    <%= render 'shared/show/edit_property_modal', collection: collection, property: property %>
 </div>
