@@ -12,42 +12,4 @@ puts "starting seeds"
 Property.destroy_all
 Collection.destroy_all
 User.destroy_all
-user = User.create!(email: "miguel@casalink.com", password: "123456", first_name: "Miguel", last_name: "Rodrigues")
-collection = Collection.create!(name: "Alvalade", user: user)
-property1 = Property.create!(name: "T4 for sale",
-                            price: "865.000€",
-                            url: "https://www.idealista.pt/imovel/33353664/",
-                            address: "R. do Centro Cultural 45, 1700-006 Lisboa, Portugal",
-                            typology: "T4",
-                            size: "216m²",
-                            elevator: true,
-                            garage: false,
-                            collection: collection)
-
-puts "#{property1.name} created"
-
-property2 = Property.create!(name: "T3 for sale",
-                            price: "620.000€",
-                            url: "https://www.idealista.pt/imovel/34040390/",
-                            address: "Parque Eduardo VII, 1070-099 Lisboa, Portugal",
-                            typology: "T3",
-                            size: "169m²",
-                            elevator: true,
-                            garage: false,
-                            collection: collection)
-
-puts "#{property2.name} created"
-
-property3 = Property.create!(name: "Amazing penthouse",
-                            price: "855.000€",
-                            url: "https://www.idealista.pt/imovel/33961824/",
-                            address: "R. Rodrigues de Faria 103, 1300-501 Lisboa, Portugal",
-                            typology: "T5",
-                            size: "190m²",
-                            elevator: true,
-                            garage: true,
-                            collection: collection)
-
-puts "#{property3.name} created"
-puts "seeding finished"
-  
+user = User.create!(email: "rita@casalink.com", password: "123456", first_name: "Rita", last_name: "Costiv")
