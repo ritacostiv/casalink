@@ -18,22 +18,14 @@ class PropertiesController < ApplicationController
     redirect_to collection_path(@collection), notice: "Property deleted"
   end
 
+  def show
+    @collection = Collection.find(params[:id])
+    @properties = @collection.properties
+  end
+
   private
 
   def property_params
     params.require(:property).permit(:name, :url, :address, :price, :description, :typology, :garage, :elevator, :size)
   end
-
-  # def property_params
-  #   params.require(:property).permit(
-  #     :name,
-  #     :url,
-  #     :address,
-  #     :price,
-  #     :typology,
-  #     :garage,
-  #     :elevator,
-  #     :size
-  #   )
-  # end
 end

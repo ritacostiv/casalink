@@ -1,0 +1,179 @@
+//app/assets/stylesheets/pages/_property_cards.scss
+
+
+/////////////////PIN ADDRESS/////////////////
+
+.location-pin {
+  position: relative;
+  //cursor: help;
+  margin-left: 8px;
+
+  &::after {
+    content: attr(data-address);
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 120%;
+    transform: translateY(-50%);
+    background-color: $background-color;
+    color: $text-color;
+    padding: 12px 20px;
+    border-radius: 8px;
+    width: 300px;
+    word-wrap: break-word;
+    transition: all 0.3s ease;
+    box-shadow: $box-shadow;
+    font-size: 14px;
+    z-index: 10;
+    border: 1px solid rgba($primary-color, 0.2);
+  }
+
+  &:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
+///////////// Amenities //////////////
+.property-amenities {
+  &-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+  }
+
+  &-tag {
+    border: 1px solid #F2994A;
+    color: #F2994A;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+  }
+}
+
+///////////// Comments Button //////////////
+
+.property-comments-button {
+  a {
+    color: #F2994A;
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .comments-icon {
+    color: #F2994A;
+    font-size: 14px;
+    margin-right: 5px;
+  }
+}
+
+///////////// Property Header Details //////////////
+
+.property-details {
+  flex: 1;
+
+  .property-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .property-title-container {
+      display: flex;
+      align-items: center;
+      gap: 10px; // Adds space between elements
+
+      .property-title {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      .location-pin {
+        display: flex;
+        align-items: center;
+      }
+
+      .delete-property-button,
+      .property-rating {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.property-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 20px;
+
+  .property-content {
+    display: flex;
+    gap: 20px;
+
+    .property-image {
+      flex: 0 0 40%;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .image-dots {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        text-align: center;
+
+        span {
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: white;
+          margin: 0 3px;
+
+          &.inactive {
+            background-color: rgba(255,255,255,0.5);
+          }
+        }
+      }
+    }
+
+    .property-header {
+      .property-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .property-title {
+          margin: 0;
+          font-size: 22px;
+          font-weight: 600;
+        }
+
+        .property-header-actions {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}

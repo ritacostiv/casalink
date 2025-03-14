@@ -1,85 +1,73 @@
 <!-- app/views/shared/show/_propertycard.html.erb -->
-
-<!-- Property Card -->
-<div class="property-card" style="background-color: white; border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 20px;">
-  <div style="display: flex; gap: 20px;">
-    <!-- Property image
-    <div class="property-image" style="flex: 0 0 40%; position: relative;">
-      <img src="https://img4.idealista.pt/blur/WEB_DETAIL_TOP-L-P/0/id.pro.pt.image.master/59/57/02/278189286.jpg" alt="Kitchen" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
-      -->
-      <!-- Image carousel dots
-      <div style="position: absolute; bottom: 10px; left: 0; right: 0; text-align: center;">
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: white; margin: 0 3px;"></span>
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.5); margin: 0 3px;"></span>
-        <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: rgba(255,255,255,0.5); margin: 0 3px;"></span>
+<!-- Property Card- Left Column -->
+<div class="property-card">
+  <div class="property-content">
+    <!-- Images-->
+    <div class="property-image">
+      <img src="https://img4.idealista.pt/blur/WEB_DETAIL_TOP-L-P/0/id.pro.pt.image.master/59/57/02/278189286.jpg" alt="Kitchen">
+      <div class="image-dots">
+        <span></span>
+        <span class="inactive"></span>
+        <span class="inactive"></span>
       </div>
-    </div> -->
-
-     <!-- Property details -->
-    <div class="property-details" style="flex: 1;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-    <div style="display: flex; align-items: center;">
-    <h2 style="margin: 0; font-size: 22px; font-weight: 600;">
-    <%= property.name %></h2>
-    <span style="margin-left: 8px; font-size: 20px;">📍</span>
     </div>
-      <!-- Delete Button -->
-      <div class="delete-property-button">
-        <%= button_to "🗑️",
-        collection_property_path(property.collection, property),
-        method: :delete,
-        form: {
-        data: {
-          turbo_confirm: "Are you sure you want to delete this property?",
-          turbo_method: :delete
-        }
-      },
-      class: "delete-btn",
-      style: "text-decoration: none; color: #666666; font-size: 15px; background: none; border: none; padding: 0;" %>
-      </div>
 
-      <!-- Property Rating  -->
-      <div class="property-rating" style="color: #F2994A; font-weight: 500; font-size: 15px;"> 4.5/5
+    <!-- Property details container -->
+    <div class="property-details">
+      <div class="property-header">
+        <div class="property-title-container">
+          <h2 class="property-title"><%= property.name %></h2>
+          <span class="location-pin" data-address="<%= property.address %>">📍</span>
+          <div class="delete-property-button">
+            <%= button_to "🗑️",
+              collection_property_path(property.collection, property),
+              method: :delete,
+              form: {
+                data: {
+                  turbo_confirm: "Are you sure you want to delete this property?",
+                  turbo_method: :delete
+                }
+              },
+              class: "delete-btn",
+              style: "text-decoration: none; color: #666666; font-size: 15px; background: none; border: none; padding: 0;"
+            %>
+          </div>
+          <div class="property-rating">4.5/5</div>
+        </div>
       </div>
-
-   </div>
 
       <!-- Property Comments  -->
       <div class="property-comments-button">
-      <a href="#" style="color: #F2994A; text-decoration: none; font-size: 14px; display: flex; align-items: center; margin-bottom: 12px;">
-        <span style="color: #F2994A; font-size: 14px; margin-right: 5px;">💬</span>
-        3 comments
-      </a>
+        <a href="#">
+          <span class="comments-icon">💬</span>
+          3 comments
+        </a>
       </div>
 
-      <!-- Amenities - first row -->
-      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; margin-top: 15px;">
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.address%></span>
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.price %></span>
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
+      <!-- Amenities -->
+      <div class="property-amenities-row">
+        <span class="property-amenities-tag"><%= property.price %></span>
+        <span class="property-amenities-tag"><%= property.size %></span>
       </div>
 
-      <!-- Amenities - second row -->
-      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.typology %></span>
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.size %></span>
-        <span style="border: 1px solid #F2994A; color: #F2994A; padding: 6px 12px; border-radius: 50px; font-size: 12px;"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
+      <div class="property-amenities-row">
+        <span class="property-amenities-tag"><%= property.typology %></span>
+        <span class="property-amenities-tag"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
+        <span class="property-amenities-tag"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
       </div>
     </div>
   </div>
 
   <!-- Bottom section with attribution and view details link -->
   <div style="display: flex; justify-content: space-between; padding-top: 15px; margin-top: 10px; border-top: 1px solid #f0f0f0;">
-  <div style="display: flex; align-items: center;">
-  <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
-      <%= link_to "🔗 by #{collection.user.first_name}", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
-  </div>
-  </div>
+    <div style="display: flex; align-items: center;">
+      <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
+        <%= link_to "🔗 by #{collection.user.first_name}", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
+      </div>
+    </div>
 
-  <div style="display: flex; align-items: center;">
-  <a href="#" style="color: #F2994A; text-decoration: none; font-size: 14px;">View details</a>
+    <div class="view-details" style="display: flex; align-items: center;">
+      <a href="#" style="color: #F2994A; text-decoration: none; font-size: 14px;">View details</a>
+    </div>
   </div>
-  </div>
-
-
 </div>

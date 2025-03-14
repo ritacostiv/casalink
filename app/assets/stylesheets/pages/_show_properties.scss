@@ -1,0 +1,41 @@
+//app/assets/stylesheets/pages/_show_properties.scss//
+
+
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.content-area {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 20px;
+  width: 100%;
+}
+
+.left-column {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 800px;
+}
+
+.right-column {
+  flex: 1;
+  max-height: 800px;
+  min-height: 600px;
+  position: relative;
+  background-color: rgb(227, 223, 223);
+  border-radius: 12px;
+}
+
+.properties-list-left {
+  overflow-y: auto;
+  padding-left: 0;
+}
+
+
+// /* debugging */
+// .main-container, .content-area, .left-column, .right-column, .properties-list {
+//   border: 2px solid red;
+// }
