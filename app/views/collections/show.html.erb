@@ -9,7 +9,7 @@
       <!-- Left column - Property cards -->
       <div class="left-column">
       <div class="properties-list-left">
-      <% @collection.properties.each do |property| %>
+      <% @properties.each do |property| %>
       <%= render 'shared/show/propertycard', collection: @collection, properties: @properties, property: property %>
       <% end %>
       </div>

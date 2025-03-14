@@ -20,7 +20,7 @@ class CollectionsController < ApplicationController
 
   def show
     @collection = Collection.find(params[:id])
-    @properties = @collection.properties # Instead of loading all properties, load only those belonging to the collection
+    @properties = @collection.properties.order(created_at: :desc) # Instead of loading all properties, load only those belonging to the collection
     @property = Property.new
     #@properties = Property.all
     #@collection.user = current_user #<-- Remove this line if you didn't mean to reassign ownership

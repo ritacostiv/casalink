@@ -23,21 +23,19 @@
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <%= f.input :name %>
+        <%#= f.input :name %>
         <%= f.input :url %>
-        <%= f.input :size %>
-        <%= f.input :price %>
-        <%= f.input :address %>
-        <%= f.input :typology, collection: ["T0", "T1", "T2", "T3", "T4", "T5", "T6"] %>
-        <%= f.input :elevator %>
-        <%= f.input :garage %>
-        <%#= f.input :url, as: :hidden, input_html: { id: "idealista_url_#{collection.id}" } %>
+        <%#= f.input :size %>
+        <%#= f.input :price %>
+        <%#= f.input :address %>
+        <%#= f.input :typology, collection: ["T0", "T1", "T2", "T3", "T4", "T5", "T6"] %>
+        <%#= f.input :elevator %>
+        <%#= f.input :garage %>
 
     </div>
     <div class="modal-footer">
       <%= link_to "Cancel", collections_path, class:"btn btn-secondary", data: { "bs-dismiss" => "modal" } %>
-      <%= f.button :submit, "Next", class:"btn btn-primary"%>
-      <%#= f.button :submit, "Next", class: "btn btn-primary", formaction: scrape_path, formmethod: :post %>
+      <%= f.button :submit, "Save", class:"btn btn-primary"%>
     </div>
     <% end %>
     </div>
