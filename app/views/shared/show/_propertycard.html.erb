@@ -46,12 +46,12 @@
 
       <!-- Amenities -->
       <div class="property-amenities-row">
-        <span class="property-amenities-tag"><%= property.price %></span>
-        <span class="property-amenities-tag"><%= property.size %></span>
+        <span class="property-amenities-tag">€<%= property.price %></span>
+        <span class="property-amenities-tag"><%= property.size %>m²</span>
       </div>
 
       <div class="property-amenities-row">
-        <span class="property-amenities-tag"><%= property.typology %></span>
+        <span class="property-amenities-tag">T<%= property.typology %></span>
         <span class="property-amenities-tag"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
         <span class="property-amenities-tag"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
       </div>
@@ -61,9 +61,10 @@
   <!-- Bottom section with attribution and view details link -->
   <div style="display: flex; justify-content: space-between; padding-top: 15px; margin-top: 10px; border-top: 1px solid #f0f0f0;">
     <div style="display: flex; align-items: center;">
-      <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
-        <%= link_to "🔗 by #{collection.user.first_name}", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
-      </div>
+     <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
+    <%= link_to "🔗 by #{collection.user.first_name} on", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
+    <span style="margin-left: 5px; color: #666666; font-size: 14px;"><%= property.created_at.strftime("%b %d, %H:%M") %></span>
+    </div>
     </div>
 
     <div class="view-details" style="display: flex; align-items: center;">
