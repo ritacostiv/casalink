@@ -22,7 +22,7 @@ class Property < ApplicationRecord
     http.use_ssl = true
 
     request = Net::HTTP::Get.new(url)
-    request["x-rapidapi-key"] = '88810938d8mshbd2ca5d8f05300bp17eaf3jsn0dfb38524df4'
+    request["x-rapidapi-key"] = ENV.fetch("RAPIDAPI_KEY")
     request["x-rapidapi-host"] = 'idealista7.p.rapidapi.com'
 
     response = http.request(request)
