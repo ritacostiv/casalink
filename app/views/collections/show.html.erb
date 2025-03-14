@@ -1,26 +1,25 @@
-  <!-- app/views/collections/_show.html.erb -->
-
-<div class="main-container" style="max-width: 1400px; margin: 0 auto; padding: 20px;">
-
+<!-- app/views/collections/_show.html.erb -->
+<div class="main-container">
   <!-- Header section -->
   <%= render 'shared/show/header', collection: @collection, collections: @collections %>
 
-  <!-- Content area -->
-  <div class="content area" style="display: flex; gap: 20px;">
+      <!-- Content area  -->
+      <div class="content-area">
 
-  <!-- Left column - Property cards -->
-  <div class="left column" style="flex: 0 0 40%; overflow-y: auto;">
-    <div class="properties-list" style="flex: 0 0 40%; overflow-y: auto; padding-left: 0px;">
-    <!-- Property Cards  -->
+      <!-- Left column - Property cards -->
+      <div class="left-column">
+      <div class="properties-list-left">
       <% @collection.properties.each do |property| %>
       <%= render 'shared/show/propertycard', collection: @collection, properties: @properties, property: property %>
       <% end %>
-      <%#= render 'shared/show/propertycard2', collection: @collection, properties: @properties %>
-    </div>
+      </div>
+      </div>
+
+      <!-- Right column - Details -->
+      <div class="right-column">
+      <%= render 'shared/show/rightcolumn' %>
+      </div>
+
+      <!-- Map controls -->
   </div>
-
-  <!-- Right column - Details -->
-  <%= render 'shared/show/rightcolumn' %>
-
-</div>
 </div>
