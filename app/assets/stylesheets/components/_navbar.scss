@@ -109,3 +109,18 @@
     }
   }
 }
+
+.search-container {
+  max-width: 400px; /* Set a max width to prevent overflow */
+  margin: 0 auto; /* Center horizontally */
+}
+
+.navbar .d-flex.justify-content-center {
+  position: relative; /* Ensure proper positioning */
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    max-width: 300px; /* Adjust for smaller screens */
+  }
+}

@@ -13,4 +13,8 @@ Rails.application.routes.draw do
     resources :properties, only: [:create, :destroy]
   end
   post '/scrape', to: 'scrapers#scrape', as: 'scrape'
+
+  get '/search', to: 'search#index', as: 'search'
+
+
 end
