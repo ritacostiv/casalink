@@ -5,8 +5,9 @@ class Property < ApplicationRecord
   belongs_to :collection
   after_create :set_property
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # not needed because lat and long are already provided by the API
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
 
   def extract_property_id
     match = url.match(/(\d+)\/$/)
@@ -29,12 +30,17 @@ class Property < ApplicationRecord
     update(
       price: doc["price"],
       name: doc["suggestedTexts"]["title"],
-      #size: "#{doc["constructedArea"]} m²",
       size: doc["moreCharacteristics"]["constructedArea"],
       typology: doc["moreCharacteristics"]["roomNumber"],
       address: doc["ubication"]["title"],
       elevator: doc["moreCharacteristics"]["lift"],
       garage: doc["moreCharacteristics"]["garage"],
+      image1: doc["multimedia"]["images"][0]["url"],
+      image2: doc["multimedia"]["images"][1]["url"],
+      image3: doc["multimedia"]["images"][2]["url"],
+      image4: doc["multimedia"]["images"][3]["url"],
+      latitude: doc["ubication"]["latitude"],
+      longitude: doc["ubication"]["longitude"]
     )
   end
 end
