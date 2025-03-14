@@ -4,12 +4,13 @@
   <div class="property-content">
     <!-- Images-->
     <div class="property-image">
-      <img src="https://img4.idealista.pt/blur/WEB_DETAIL_TOP-L-P/0/id.pro.pt.image.master/59/57/02/278189286.jpg" alt="Kitchen">
-      <div class="image-dots">
+
+      <%= image_tag property.image1 unless property.image1.nil? %>
+    <%# <div class="image-dots">
         <span></span>
         <span class="inactive"></span>
         <span class="inactive"></span>
-      </div>
+      </div> %>
     </div>
 
     <!-- Property details container -->
@@ -50,7 +51,11 @@
         <span class="property-amenities-tag"><%= property.size %>m²</span>
         </div>
 
-        <div class="property-amenities-row">
+        
+        
+     
+
+      <div class="property-amenities-row">
         <span class="property-amenities-tag">T<%= property.typology %></span>
         <span class="property-amenities-tag"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
         <span class="property-amenities-tag"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
