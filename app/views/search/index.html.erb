@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h2>Search Results for "<%= @query %>"</h2>
+
+  <% if @collections.any? %>
+    <h3>Collections</h3>
+    <ul class="list-group">
+      <% @collections.each do |collection| %>
+        <li class="list-group-item">
+          <a href="<%= collection_path(collection) %>"><strong><%= collection.name %></strong></a>
+          <p><%= collection.description %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No collections found.</p>
+  <% end %>
+
+  <% if @properties.any? %>
+    <h3>Properties</h3>
+    <ul class="list-group">
+      <% @properties.each do |property| %>
+        <li class="list-group-item">
+          <strong><%= property.name %></strong> - <%= property.address %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No properties found.</p>
+  <% end %>
+</div>
