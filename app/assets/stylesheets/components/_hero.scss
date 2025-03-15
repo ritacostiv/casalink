@@ -45,3 +45,28 @@
     }
   }
 }
+
+.hero-content {
+  position: relative;
+
+  h1 {
+    position: relative;
+    animation: fade-in 3.5s ease-out forwards;
+  }
+
+  h3 {
+    position: relative;
+    animation: fade-in 6s ease-out forwards; /* Slight delay for h3 */
+    // animation-delay: 2.5s; /* Optional: Makes h3 fade in after h1 */
+  }
+}
+
+/* Keyframes for Fading In */
+@keyframes fade-in {
+  0% {
+    opacity: 0; /* Start fully invisible */
+  }
+  100% {
+    opacity: 1; /* End fully visible */
+  }
+}
