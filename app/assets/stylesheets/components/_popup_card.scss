@@ -1,0 +1,88 @@
+.pop-up-card {
+  display: flex; /* Activates Flexbox */
+  justify-content: center; /* Centers the card horizontally */
+  align-items: center; /* Centers the card vertically */
+  opacity: 1 !important; /* Ensures visibility for debugging */
+  visibility: visible !important; /* Ensures it's interactive for debugging */
+}
+
+.pop-up-card.active {
+  opacity: 1; /* Makes the overlay and card visible */
+  visibility: visible; /* Allows interaction */
+}
+
+.card-container {
+  background: rgba(255, 255, 255, 0.4); /* White with transparency */
+  padding: 30px; /* Internal spacing */
+  width: 200px; /* Starting width */
+  height: 300px; /* Fixed height */
+  max-width: 90%; /* Responsive for smaller screens */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Initial shadow (none) */
+  transform: scale(1); /* Full size */
+  animation: grow-width 2s ease forwards, box-shadow-animation 1.5s ease 2s forwards; /* Chain animations */
+}
+
+/* Keyframes for the card's width */
+@keyframes grow-width {
+  0% {
+    width: 200px; /* Start with the initial width */
+  }
+  100% {
+    width: 1050px; /* End with the full size */
+  }
+}
+
+/* Animation for the box shadow */
+@keyframes box-shadow-animation {
+  0% {
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3); /* Shadow starts at the top */
+  }
+  100% {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow ends uniformly */
+  }
+}
+
+
+.hero-cta .btn {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Same shadow as the card */
+  padding: 15px 30px; /* Adjust padding for a more balanced size */
+  border: none; /* Remove any default button borders */
+  background: #ff9d00; /* Adjust as per your button color */
+  color: #fff; /* Button text color */
+  border-radius: 8px; /* Rounded corners for a cohesive look */
+  font-size: 16px; /* Consistent, readable text size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  opacity: 0; /* Initially hidden */
+  animation: fade-in 3.0s ease 0.8s forwards; /* Fade-in animation with 2s delay */
+}
+
+.hero-cta .btn:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4); /* Slightly larger shadow on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Fade-in Animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0; /* Start hidden */
+  }
+  100% {
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.card-container h3 {
+  opacity: 0; /* Start hidden */
+  animation: fade-in-h3 2s ease 0.7s forwards; /* Fade in after a 3s delay */
+}
+
+/* Keyframes for h3 Fade-in */
+@keyframes fade-in-h3 {
+  0% {
+    opacity: 0; /* Completely hidden */
+  }
+  100% {
+    opacity: 1; /* Fully visible */
+  }
+}
