@@ -3,8 +3,10 @@
 <% collections.each do |collection| %>
 
   <div class="collection-card collection-existing">
+  <div class="existing-collection-blue">
     <div class="collection-meta">
       <%= collection.properties.count %> properties • Last updated <%= time_ago_in_words(collection.updated_at) %>
+    </div>
     </div>
     <div class="collection-details">
       <%= link_to collection_path(collection), class: "collection-card-link" do %>

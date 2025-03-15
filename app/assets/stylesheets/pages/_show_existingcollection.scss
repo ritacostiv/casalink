@@ -26,12 +26,19 @@
     color: #666;
     margin-bottom: 10px;
     font-size: 14px;
+    margin-top: auto;
   }
 
   .collection-name {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      color: #FFA500;
+      cursor: pointer;
+    }
   }
 
   .collection-add-btn {
@@ -132,17 +139,28 @@
 }
 
 //Existing//
+
+.existing-collection-blue {
+  background-color: #E6EDFA;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  border-radius: 12px;
+}
 .collection-card.collection-existing {
   background-color: #E6EDFA;
-  border-radius: 12px;
-  height: 200px;
+  //height: 200px;
   display: flex;
   flex-direction: column;
 
   .collection-meta {
-    padding: 25px;
     color: #666;
     font-size: 14px;
+    padding: 15px 20px;
+    align-items: flex-end;
+    margin-top: auto;
+
   }
 
   .collection-details {
@@ -152,6 +170,7 @@
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
+    //border-radius: 12px;
 
     .collection-name {
       font-size: 20px;
@@ -179,9 +198,13 @@
         font-size: 14px;
         cursor: pointer;
         align-self: flex-end;
-        transition: width 0.3s ease;
+        //transition: width 0.3s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
 
         &:hover {
+          transform: scale(1.1);
+          box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+
           &::after {
             content: 'Add Property';
             position: absolute;
@@ -204,4 +227,3 @@
   color: inherit;
   display: block;
 }
-
