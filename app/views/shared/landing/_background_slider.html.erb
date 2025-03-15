@@ -1,0 +1,8 @@
+<div class="background-slider">
+  <div class="slider-images">
+    <% (1..9).each do |i| %>
+      <img src="<%= asset_path "Slider pic #{i}.jpg" %>" alt="Background Image <%= i %>">
+    <% end %>
+  </div>
+</div>
+
