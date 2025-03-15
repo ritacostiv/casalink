@@ -1,0 +1,47 @@
+.hero {
+  position: relative; /* Ensure absolute positioning of lines works */
+  overflow: hidden; /* Prevent lines from overflowing outside */
+
+  .line {
+    position: absolute;
+    height: 2px; /* Thick lines */
+    background-color: #ea8825; /* Black lines */
+    animation: slide-animation 2s ease-out forwards; /* Shared animation settings */
+  }
+
+  /* Top Line: Sliding from left to right */
+  .top-line {
+    top: 0;
+    left: 0;
+    width: 0; /* Start with no width */
+    animation-name: slide-left-to-right;
+  }
+
+  /* Bottom Line: Sliding from right to left */
+  .bottom-line {
+    bottom: 0;
+    right: 0;
+    width: 0; /* Start with no width */
+    animation-name: slide-right-to-left;
+  }
+
+  /* Keyframes for the top line */
+  @keyframes slide-left-to-right {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%; /* Fully span the width of the hero section */
+    }
+  }
+
+  /* Keyframes for the bottom line */
+  @keyframes slide-right-to-left {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%; /* Fully span the width of the hero section */
+    }
+  }
+}
