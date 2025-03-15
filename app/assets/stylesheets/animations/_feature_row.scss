@@ -1,0 +1,19 @@
+.feature-row {
+  position: relative;
+  opacity: 0; /* Start invisible */
+  transform: translateX(100%); /* Start off-screen to the right */
+  animation: slide-in 1.5s ease-out forwards; /* Animate into place */
+}
+
+/* Keyframes for sliding in */
+@keyframes slide-in {
+  0% {
+    opacity: 0; /* Fully transparent */
+    transform: translateX(100%); /* Positioned off-screen to the right */
+  }
+  100% {
+    opacity: 1; /* Fully visible */
+    transform: translateX(0); /* Final position */
+  }
+}
+
