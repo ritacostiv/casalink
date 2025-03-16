@@ -89,17 +89,7 @@
     border-radius: 50%;
     transition: transform 0.3s ease;
 
-    &.whatsapp {
-      // Your whatsapp styling
-    }
 
-    &.messenger {
-      // Your messenger styling
-    }
-
-    &.email {
-      // Your email styling
-    }
 
     &:hover {
       transform: scale(1.5);
@@ -111,11 +101,143 @@
       box-shadow: none;
     }
   }
-}
+
+  .share-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+
+    &.whatsapp {
+      color: #25D366;
+      &:hover {
+        background-color: rgba(#25D366, 0.1);
+      }
+    }
+
+    &.sms {
+      color: #3366cc;
+      &:hover {
+        background-color: rgba(#3366cc, 0.1);
+      }
+    }
+
+    &.email {
+      color: #EA4335;
+      &:hover {
+        background-color: rgba(#EA4335, 0.1);
+      }
+    }
+  }
 
 .collapsable-btn {
   border-radius: 5px;
   display: flex;
   align-items: center;
   border-style: none;
+}
+}
+
+.modal-content {
+  border-radius: 12px;
+  box-shadow: $box-shadow;
+  border: 1px solid $border-color;
+}
+
+.modal-header {
+  border-bottom: 1px solid $border-color;
+  padding: 20px;
+
+  .modal-title {
+    font-weight: 600;
+    color: $text-color;
+  }
+
+  .btn-close {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.share-link-container {
+  display: flex;
+  background-color: $light-gray;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid $border-color;
+
+  input {
+    border: none;
+    background-color: transparent;
+    flex-grow: 1;
+    color: $text-color;
+  }
+
+  .copy-link-btn {
+    background-color: transparent;
+    color: $primary-color;
+    border: none;
+    padding: 6px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+      &:hover {
+        background-color: rgba($primary-color, 0.1);
+      }
+  }
+
+
+}
+
+.share-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+
+  .share-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    border: 1px solid transparent;
+
+    i {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    &:hover {
+      border-color: rgba($primary-color, 0.3);
+      background-color: rgba($primary-color, 0.1);
+    }
+
+    &.whatsapp {
+      color: #33D46A;
+      text-decoration: none;
+      &:hover { background-color: rgba($green, 0.1); }
+    }
+    &.sms {
+      color: #2576E8;
+      text-decoration: none;
+      &:hover { background-color: rgba($blue, 0.1); }
+    }
+    &.email {
+      color: #0761B0;
+      text-decoration: none;
+      &:hover { background-color: rgba($danger, 0.1); }
+    }
+  }
 }
