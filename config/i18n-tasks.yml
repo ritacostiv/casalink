@@ -1,0 +1,11 @@
+base_locale: en
+locales: # List all supported locales here
+  - en
+  - pt
+  - es
+  - fr
+data:
+  read:
+    - config/locales/%{locale}.yml
+  write:
+    - config/locales/%{locale}.yml

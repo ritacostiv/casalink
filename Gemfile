@@ -79,3 +79,6 @@ group :test do
 end
 
 gem 'faker'
+
+# translate languages from hardcoded text
+gem 'i18n-tasks', '~> 1.0'

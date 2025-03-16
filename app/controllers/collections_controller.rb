@@ -34,6 +34,7 @@ class CollectionsController < ApplicationController
     end
   end
 
+  
   private
 
   def collection_params
