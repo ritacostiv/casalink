@@ -19,7 +19,7 @@
   max-width: 90%; /* Responsive for smaller screens */
   box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Initial shadow (none) */
   transform: scale(1); /* Full size */
-  animation: grow-width 2s ease forwards, box-shadow-animation 1.5s ease 2s forwards; /* Chain animations */
+  animation: grow-width 3s ease forwards, box-shadow-animation 1.5s ease 2s forwards; /* Chain animations */
 }
 
 /* Keyframes for the card's width */
@@ -35,16 +35,16 @@
 /* Animation for the box shadow */
 @keyframes box-shadow-animation {
   0% {
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.3); /* Shadow starts at the top */
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* Shadow starts at the top */
   }
   100% {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow ends uniformly */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow ends uniformly */
   }
 }
 
 
 .hero-cta .btn {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Same shadow as the card */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.0); /* Same shadow as the card */
   padding: 15px 30px; /* Adjust padding for a more balanced size */
   border: none; /* Remove any default button borders */
   background: #ff9d00; /* Adjust as per your button color */
@@ -54,11 +54,11 @@
   cursor: pointer; /* Pointer cursor on hover */
   transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
   opacity: 0; /* Initially hidden */
-  animation: fade-in 3.0s ease 0.8s forwards; /* Fade-in animation with 2s delay */
+  animation: fade-in 5.0s ease 1.0s forwards; /* Fade-in animation with 2s delay */
 }
 
 .hero-cta .btn:hover {
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4); /* Slightly larger shadow on hover */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2); /* Slightly larger shadow on hover */
   transform: translateY(-2px); /* Subtle lift effect */
 }
 
@@ -74,7 +74,7 @@
 
 .card-container h3 {
   opacity: 0; /* Start hidden */
-  animation: fade-in-h3 2s ease 0.7s forwards; /* Fade in after a 3s delay */
+  animation: fade-in-h3 6s ease 0.7s forwards; /* Fade in after a 3s delay */
 }
 
 /* Keyframes for h3 Fade-in */
