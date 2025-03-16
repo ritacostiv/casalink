@@ -12,8 +12,8 @@
       <%= link_to collection_path(collection), class: "collection-card-link" do %>
       <h3 class="collection-name"><%= collection.name %></h3><% end %>
       <div class="collection-actions">
-        <!-- <div class="add-property-btn" data-bs-toggle="modal" data-bs-target="#collectionModal">+</div> -->
        <%= render "shared/addproperty_button", collection: collection, property: Property.new %>
+       <%= render "shared/share_button", collection: collection %>
       </div>
     </div>
   </div>

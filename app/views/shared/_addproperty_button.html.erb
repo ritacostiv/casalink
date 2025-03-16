@@ -19,12 +19,14 @@
     <!-- Simple form -->
     <%= simple_form_for [collection, property] do |f| %>
     <div class="modal-header">
-      <h1 class="modal-title fs-5" id="exampleModalLabel">New Property</h1>
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Property to <span style="color: #F2994A;"><%= collection.name %></span></h1>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
         <%#= f.input :name %>
-        <%= f.input :url %>
+        <%= f.input :url,
+        label: "Property Link",
+        placeholder: "Paste property link here" %>
         <%#= f.input :size %>
         <%#= f.input :price %>
         <%#= f.input :address %>

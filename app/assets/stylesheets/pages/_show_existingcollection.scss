@@ -140,6 +140,17 @@
 
 //Existing//
 
+.edit-collection-icon {
+  cursor: pointer;
+  margin-left: 8px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .existing-collection-blue {
   background-color: #E6EDFA;
   flex-grow: 1;
@@ -173,7 +184,7 @@
     //border-radius: 12px;
 
     .collection-name {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
       margin: 0;
       transition: color 0.3s ease;
@@ -181,6 +192,8 @@
       position: absolute;
       bottom: 20px;
       left: 20px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
 
       &:hover {
         color: #FFA500;
@@ -189,6 +202,10 @@
     }
 
     .collection-actions {
+        display: flex;
+        align-items: center;
+        gap: 0px;
+        margin-left: auto;
       .add-property-btn {
         background-color: #FFA500;
         color: white;
@@ -198,8 +215,9 @@
         font-size: 14px;
         cursor: pointer;
         align-self: flex-end;
-        //transition: width 0.3s ease;
+        transition: width 0.3s ease;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
+
 
         &:hover {
           transform: scale(1.1);
