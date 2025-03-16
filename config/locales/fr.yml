@@ -1,0 +1,27 @@
+---
+fr:
+  errors:
+    messages:
+      not_saved: Not saved
+  footer:
+    copyright: CasaLink Copyright © 2025
+    facebook: Facebook
+    instagram: Instagram
+    twitter: X
+  hello: Hello world
+  housing:
+    tagline: "Toutes vos options de logement, dans un seul endroit organisé."
+  tutorial:
+    property_link: "Ajoutez les liens de vos propriétés"
+    property_link_description1: "Ajoutez facilement des propriétés depuis des plateformes populaires comme Remax, Idealista, et bien plus. Collez simplement l’URL et CasaLink organisera tous les détails pour vous."
+    property_link_description2: "Plus besoin de feuilles Excel, de fils de discussion interminables et de courriels éparpillés."
+    collaborate_title: "Collaborez en temps réel"
+    collaborate_p1: "Ajoutez des commentaires, évaluez les propriétés et voyez les retours de tout le monde en temps réel."
+    collaborate_p2: "Prenez des décisions ensemble. Parfait pour des colocataires, des couples ou des familles qui recherchent ensemble."
+    share_title: "Partagez avec n'importe qui, n'importe où"
+    share_p1: "Générez un lien partageable vers votre collection que tout le monde peut consulter, même sans compte."
+    share_p2: "Envoyez via WhatsApp, e-mail ou toute application de messagerie. Parfait pour partager avec des agents immobiliers ou la famille."
+    create_1: "Créez votre CasaLink dès aujourd'hui"
+    start_1: "Commencez à organiser votre recherche de logement dès maintenant."
+  button:
+    begin: "commencer"
