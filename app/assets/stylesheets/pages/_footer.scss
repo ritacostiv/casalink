@@ -1,0 +1,28 @@
+.footer {
+  background-color: #f4f4f4; /* Light grey background */
+  color: #9e9b97; /* Dark text color */
+  text-align: center; /* Center all footer content */
+  padding: 20px 0;
+  border-top: 1px solid #ddd; /* Subtle top border */
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px; /* Set max width for content */
+  margin: 0 auto; /* Center footer content */
+}
+
+.social-links {
+  margin-bottom: 10px;
+}
+
+.social-icon {
+  margin: 0 10px; /* Add spacing between icons */
+  color: #aaa7a4; /* Default icon color (orange) */
+  font-size: 24px; /* Icon size */
+  transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+.social-icon:hover {
+  color: #333333; /* Darker color on hover */
+}
