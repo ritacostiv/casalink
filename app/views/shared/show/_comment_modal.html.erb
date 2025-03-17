@@ -1,0 +1,46 @@
+<!-- app/views/shared/show/_comment_modal.html.erb -->
+<div class="modal fade" id="commentModal<%= property.id %>" tabindex="-1" aria-labelledby="commentModalLabel<%= property.id %>" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commentModalLabel<%= property.id %>">Comments for <%= property.name %></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Comment form -->
+        <div class="comment-form mb-3">
+          <h6>Add a comment</h6>
+          <%= form_with(model: [property, comment]) do |f| %>
+            <div class="form-group">
+              <%= f.text_area :text, class: "form-control", placeholder: "Write your comment here...", rows: 3, required: true, style: "width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 12px;" %>
+            </div>
+            <%= f.submit "Post Comment", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
+        <hr>
+
+        <!-- Comments list -->
+        <h6>All Comments (<%= property.comments.count %>)</h6>
+        <% if property.comments.any? %>
+          <div class="comments-list" style="margin-top: 15px; max-height: 300px; overflow-y: auto;">
+            <% property.comments.order(created_at: :desc).each do |comment| %>
+              <div class="comment" style="padding: 10px 0; border-bottom: 1px solid #e0e0e0;">
+                <div style="display: flex; justify-content: space-between;">
+                  <strong><%= comment.user.first_name %>:</strong>
+                  <small style="color: #666;"><%= time_ago_in_words(comment.created_at) %> ago</small>
+                </div>
+                <p style="margin-top: 5px; margin-bottom: 5px;"><%= comment.text %></p>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <p style="color: #666; font-style: italic;">No comments yet. Be the first to comment!</p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
