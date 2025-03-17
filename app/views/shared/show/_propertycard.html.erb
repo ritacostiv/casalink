@@ -48,7 +48,7 @@
   <div style="display: flex; justify-content: space-between; padding-top: 15px; margin-top: 10px; border-top: 1px solid #f0f0f0;">
   <div style="display: flex; align-items: center;">
   <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
-  <%= link_to "🔗 by #{collection.user.first_name} on", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
+  <%= link_to "🔗 by #{property.user.first_name} on", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
   <span style="margin-left: 5px; color: #666666; font-size: 14px;"><%= property.created_at.strftime("%b %d, %H:%M") %></span>
   </div>
   </div>

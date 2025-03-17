@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_17_104124) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_17_153306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,7 +51,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_17_104124) do
     t.string "image2"
     t.string "image3"
     t.string "image4"
+    t.bigint "user_id", null: false
     t.index ["collection_id"], name: "index_properties_on_collection_id"
+    t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
   create_table "scrapers", force: :cascade do |t|
@@ -78,4 +80,5 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_17_104124) do
   add_foreign_key "comments", "properties"
   add_foreign_key "comments", "users"
   add_foreign_key "properties", "collections"
+  add_foreign_key "properties", "users"
 end
