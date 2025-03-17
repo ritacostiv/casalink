@@ -60,17 +60,31 @@ body {
       .logo-icon {
         display: inline-block;
         margin-bottom: 10px;
+        opacity: 0; /* Start hidden */
+        animation: fadeIn 1s ease-in forwards; /* Fade-in animation */
+        animation-delay: 1s; /* Delay of 3 seconds before fading in */
 
         img {
           width: 40px;
           height: 40px;
         }
+
       }
 
       h1 {
         margin: 0;
         font-size: 55px;
         color: $text-color;
+      }
+
+      /* Keyframes for the fade-in effect */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     }
 

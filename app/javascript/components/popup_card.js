@@ -19,4 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Pop-up closed");
     });
   }
+
+  
 });
