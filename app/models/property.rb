@@ -3,10 +3,12 @@ require 'net/http'
 
 class Property < ApplicationRecord
   belongs_to :collection
-  after_create :set_property
+  after_create :set_property, :create_property_track_changes
   has_many :comments, dependent: :destroy
+  has_many :events, dependent: :nullify
   belongs_to :user
-  after_update :update_property_track_changes
+  after_update_commit :update_property_track_changes
+  before_destroy :destroy_property_track_changes
 
   # not needed because lat and long are already provided by the API
   # geocoded_by :address
@@ -49,13 +51,20 @@ class Property < ApplicationRecord
 
   private
 
+  def create_property_track_changes
+    return unless saved_changes?
+
+    Event.create(user: user, property: self, property_name: name, url: url, event_type: :property_creation)
+  end
+
   def update_property_track_changes
     return unless saved_changes?
 
-    if saved_change_to_attribute?(:created_at)
-      Event.create(user: user, property: self, property_name: name, url: url, event_type: 1)
-    else
-      Event.create(user: user, property: self, property_name: name, url: url, event_type: 0)
-    end
+    Event.create(user: user, property: self, property_name: name, url: url, event_type: :property_update)
+  end
+
+  def destroy_property_track_changes
+
+    Event.create(user: user, property_id: id, property_name: name, url: url, event_type: :property_deletion)
   end
 end

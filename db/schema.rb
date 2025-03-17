@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_17_155244) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_17_230221) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_17_155244) do
     t.integer "event_type"
     t.string "property_name"
     t.bigint "user_id", null: false
-    t.bigint "property_id", null: false
+    t.bigint "property_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_events_on_property_id"
@@ -91,7 +91,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_17_155244) do
   add_foreign_key "collections", "users"
   add_foreign_key "comments", "properties"
   add_foreign_key "comments", "users"
-  add_foreign_key "events", "properties"
+  add_foreign_key "events", "properties", on_delete: :nullify
   add_foreign_key "events", "users"
   add_foreign_key "properties", "collections"
   add_foreign_key "properties", "users"
