@@ -12,12 +12,12 @@
 }
 
 .card-container {
-  background: rgba(255, 255, 255, 0.4); /* White with transparency */
+  background: rgba(22, 22, 22, 0.0); /* White with transparency */
   padding: 30px; /* Internal spacing */
   width: 200px; /* Starting width */
   height: 300px; /* Fixed height */
   max-width: 90%; /* Responsive for smaller screens */
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Initial shadow (none) */
+  // box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Initial shadow (none) */
   transform: scale(1); /* Full size */
   animation: grow-width 3s ease forwards, box-shadow-animation 1.5s ease 2s forwards; /* Chain animations */
 }
@@ -33,14 +33,14 @@
 }
 
 /* Animation for the box shadow */
-@keyframes box-shadow-animation {
-  0% {
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* Shadow starts at the top */
-  }
-  100% {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow ends uniformly */
-  }
-}
+// @keyframes box-shadow-animation {
+//   0% {
+//     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* Shadow starts at the top */
+//   }
+//   100% {
+//     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow ends uniformly */
+//   }
+// }
 
 
 .hero-cta .btn {
