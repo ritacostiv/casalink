@@ -104,11 +104,23 @@
     font-size: 14px;
 
     i {
-      margin-right: 8px;
-      font-size: 12px;
+      margin-right: 8px; /* Space between icon and text */
+      font-size: 20px; /* Make the icon larger */
       color: #666;
     }
+
+    &:hover i {
+      color: #ef6c0e; /* Change icon color on hover */
+    }
   }
+
+  .navbar-nav .dashboard-link {
+    position: relative; /* Use relative positioning to allow custom placement */
+    margin-right: auto; /* Pushes this link to the far left */
+    margin-left: 10px; /* Optional: Adjust spacing from the edge */
+    padding-left: 20px; /* Optional: Add padding to adjust spacing from the edge */
+  }
+
 }
 
 .search-container {

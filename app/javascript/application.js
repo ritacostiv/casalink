@@ -5,5 +5,5 @@ import "@popperjs/core"
 import "bootstrap"
 
 import './background_slider';
-import '../components/animate_feature_row';
+import './components/animate_feature_row';
 import './components/popup_card';
