@@ -2,10 +2,71 @@
   <div class="property-card">
   <div class="property-content">
 
-  <!-- Images-->
-  <div class="property-image">
-  <%= image_tag property.image1 unless property.image1.nil? %>
+
+
+
+<div class="property-image">
+  <div id="propertyCarousel<%= property.id %>" class="carousel slide">
+    <!-- Carousel Indicators -->
+    <div class="carousel-indicators">
+      <% if property.image1.present? %>
+        <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <% end %>
+      <% if property.image2.present? %>
+        <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <% end %>
+      <% if property.image3.present? %>
+        <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <% end %>
+      <% if property.image4.present? %>
+        <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <% end %>
+    </div>
+
+    <!-- Carousel Items -->
+    <div class="carousel-inner">
+      <% if property.image1.present? %>
+        <div class="carousel-item active">
+          <%= image_tag property.image1, class: "d-block w-100", alt: "Image 1" %>
+        </div>
+      <% end %>
+      <% if property.image2.present? %>
+        <div class="carousel-item">
+          <%= image_tag property.image2, class: "d-block w-100", alt: "Image 2" %>
+        </div>
+      <% end %>
+      <% if property.image3.present? %>
+        <div class="carousel-item">
+          <%= image_tag property.image3, class: "d-block w-100", alt: "Image 3" %>
+        </div>
+      <% end %>
+      <% if property.image4.present? %>
+        <div class="carousel-item">
+          <%= image_tag property.image4, class: "d-block w-100", alt: "Image 4" %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
+</div>
+
+
+
+
+
+
+
+
+
 
   <!-- Property details container -->
   <div class="property-details">
