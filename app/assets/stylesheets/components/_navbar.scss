@@ -13,9 +13,9 @@
   flex-grow: 0;
 }
 
-.navbar-nav {
-  margin-left: 50px !important;
-}
+// .navbar-nav {
+//   margin-left: 50px !important;
+// }
 
 .nav-link {
   color: #666 !important;
@@ -116,8 +116,7 @@
 
   .navbar-nav .dashboard-link {
     position: relative; /* Use relative positioning to allow custom placement */
-    margin-right: auto; /* Pushes this link to the far left */
-    margin-left: 10px; /* Optional: Adjust spacing from the edge */
+    margin-right: left; /* Push it to the far left by consuming all available space */
     padding-left: 20px; /* Optional: Add padding to adjust spacing from the edge */
   }
 

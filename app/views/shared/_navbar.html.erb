@@ -4,6 +4,15 @@
       <%= image_tag "logo.png" %>
     <% end %>
 
+  <!--Dashboard Button-->
+    <ul class="navbar-nav align-items-center">
+      <li class="nav-item me-3">
+        <%= link_to collections_path(locale: I18n.locale), class: "nav-link dashboard-link" do %>
+        <i class="fa-solid fa-table-columns me-2" style="font-size: 20px;"></i> <!-- Larger Dashboard Icon -->
+          My Collections
+        <% end %>
+      </li>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -14,14 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
 
-        <!--Dashboard Button-->
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item me-3">
-            <%= link_to collections_path(locale: I18n.locale), class: "nav-link dashboard-link" do %>
-            <i class="fa-solid fa-table-columns me-2" style="font-size: 20px;"></i> <!-- Larger Dashboard Icon -->
-             My Collections
-            <% end %>
-          </li>
+
 
         <!--Notifications Button-->
           <li class="nav-item me-3">
