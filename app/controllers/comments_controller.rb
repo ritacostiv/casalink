@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
   def create
     @property = Property.find(params[:property_id])
-    @comment = @property.comments.new(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.property = @property
     @comment.user = current_user
-
+    
     if @comment.save
       redirect_to collection_path(@property.collection), notice: "Comment Added"
     else

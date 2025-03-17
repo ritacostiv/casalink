@@ -1,87 +1,72 @@
-<!-- app/views/shared/show/_propertycard.html.erb -->
-<!-- Property Card- Left Column -->
-<div class="property-card">
+  <!-- app/views/shared/show/_propertycard.html.erb -->
+  <div class="property-card">
   <div class="property-content">
-    <!-- Images-->
-    <div class="property-image">
 
-      <%= image_tag property.image1 unless property.image1.nil? %>
-    <%# <div class="image-dots">
-        <span></span>
-        <span class="inactive"></span>
-        <span class="inactive"></span>
-      </div> %>
-    </div>
-
-    <!-- Property details container -->
-    <div class="property-details">
-      <div class="property-header">
-        <div class="property-title-container">
-          <h2 class="property-title"><%= property.name %></h2>
-          <span class="location-pin" data-address="<%= property.address %>">📍</span>
-          <div class="delete-property-button">
-            <button type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#deleteConfirmationModal<%= property.id %>"
-              style="text-decoration: none; color: #666666; font-size: 15px; background: none; border: none; padding: 0;">
-              🗑️
-            </button>
-          </div>
-          <div class="property-rating">4.5/5</div>
-        </div>
-      </div>
-
-        <!-- Edit Details  -->
-        <div class="edit-details-button">
-        <!--old <a href="#" style="color:rgb(235, 110, 8); text-decoration: none; font-size: 14px;">
-        Edit Details</a>-->
-         <a href="#" data-bs-toggle="modal" data-bs-target="#editPropertyModal<%= property.id %>" style="color:rgb(235, 110, 8); text-decoration: none; font-size: 12px;">
-        ✏️ Edit</a>
-        </div>
-
-        <!-- Amenities -->
-        <div class="property-amenities-row">
-        <span class="property-amenities-tag">€<%= number_with_delimiter(property.price.to_s.gsub(/[^\d.]/, '').to_f.round) %></span>
-        <span class="property-amenities-tag"><%= property.size %>m²</span>
-        </div>
-
-
-
-
-
-      <div class="property-amenities-row">
-        <span class="property-amenities-tag">T<%= property.typology %></span>
-        <span class="property-amenities-tag"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
-        <span class="property-amenities-tag"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
-        </div>
-
-    </div>
+  <!-- Images-->
+  <div class="property-image">
+  <%= image_tag property.image1 unless property.image1.nil? %>
   </div>
 
-    <!-- Bottom section: link-->
-    <div style="display: flex; justify-content: space-between; padding-top: 15px; margin-top: 10px; border-top: 1px solid #f0f0f0;">
-    <div style="display: flex; align-items: center;">
-    <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
-    <%= link_to "🔗 by #{collection.user.first_name} on", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
-    <span style="margin-left: 5px; color: #666666; font-size: 14px;"><%= property.created_at.strftime("%b %d, %H:%M") %></span>
-    </div>
-    </div>
+  <!-- Property details container -->
+  <div class="property-details">
+  <div class="property-header">
+  <div class="property-title-container">
+  <h2 class="property-title"><%= property.name %></h2>
+  <span class="location-pin" data-address="<%= property.address %>">📍</span>
+  <div class="delete-property-button">
+    <button type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#deleteConfirmationModal<%= property.id %>"
+      style="text-decoration: none; color: #666666; font-size: 15px; background: none; border: none; padding: 0;"> 🗑️
+    </button>
+  </div>
+  <div class="property-rating">4.5/5</div>
+  </div>
+  </div>
 
-    <!-- Bottom section: property comments -->
-    <%# <div class="property-comments-button" style="display: flex; align-items: center;">
-    <a href="#">
-    <span class="comments-icon">💬</span> 3 comments </a> %>
+  <!-- Edit Details  -->
+  <div class="edit-details-button">
+    <a href="#" data-bs-toggle="modal" data-bs-target="#editPropertyModal<%= property.id %>" style="color:rgb(235, 110, 8); text-decoration: none; font-size: 12px;">
+  ✏️ Edit</a>
+  </div>
 
-    <!-- Bottom section: property comments -->
-     <div class="property-comments-button" style="display: flex; align-items: center;">
-      <a href="#" data-bs-toggle="modal" data-bs-target="#commentModal<%= property.id %>" style="text-decoration: none; color: #666666; font-size: 14px;">
-        <span class="comments-icon">💬</span> <%= property.comments.count %> comments
-      </a>
-    </div>
+  <!-- Amenities -->
+  <div class="property-amenities-row">
+  <span class="property-amenities-tag">€<%= number_with_delimiter(property.price.to_s.gsub(/[^\d.]/, '').to_f.round) %></span>
+  <span class="property-amenities-tag"><%= property.size %>m²</span>
+  </div>
+  <div class="property-amenities-row">
+  <span class="property-amenities-tag">T<%= property.typology %></span>
+  <span class="property-amenities-tag"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
+  <span class="property-amenities-tag"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
+  </div>
+</div>
+  </div>
+
+
+  <!-- Bottom section: Link-->
+  <div style="display: flex; justify-content: space-between; padding-top: 15px; margin-top: 10px; border-top: 1px solid #f0f0f0;">
+  <div style="display: flex; align-items: center;">
+  <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
+  <%= link_to "🔗 by #{collection.user.first_name} on", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
+  <span style="margin-left: 5px; color: #666666; font-size: 14px;"><%= property.created_at.strftime("%b %d, %H:%M") %></span>
+  </div>
+  </div>
+
+
+  <!-- Bottom section: Property Comments -->
+  <div class="comments-section">
+  <div class="property-comments-button" style="display: flex; align-items: center;">
+  <a href="#" data-bs-toggle="modal" data-bs-target="#commentModal<%= property.id %>" style="text-decoration: none; color: #666666; font-size: 14px;">
+  <span class="comments-icon">💬</span> <%= property.comments.count %> comments
+  </a>
+  </div>
+  </div>
+  </div>
 
   <!-- Render modals -->
   <%= render 'shared/show/delete_confirmation_modal', property: property %>
   <%= render 'shared/show/edit_property_modal', collection: collection, property: property %>
-  <%= render 'shared/show/comment_modal', property: property, comment: comment %>
+  <%= render 'shared/show/comment_modal', property: property, comment: Comment.new %>
 
-</div>
+  </div>
