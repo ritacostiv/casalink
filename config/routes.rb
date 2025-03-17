@@ -1,4 +1,4 @@
-#config/routed.rb
+#config/routes.rb
 
 Rails.application.routes.draw do
   devise_for :users
@@ -14,9 +14,10 @@ Rails.application.routes.draw do
   resources :collections, only: [:index, :create, :show] do
     resources :properties, only: [:create, :destroy, :edit, :update]
   end
-  post '/scrape', to: 'scrapers#scrape', as: 'scrape'
+
+  resources :properties, only: [] do
+    resources :comments, only: [:create]
+  end
 
   get '/search', to: 'search#index', as: 'search'
-
-
 end

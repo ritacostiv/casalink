@@ -10,7 +10,7 @@
       <div class="left-column">
       <div class="properties-list-left">
       <% @properties.each do |property| %>
-      <%= render 'shared/show/propertycard', collection: @collection, properties: @properties, property: property %>
+      <%= render 'shared/show/propertycard', collection: @collection, properties: @properties, property: property, comment: @comment %>
       <% end %>
       </div>
       </div>

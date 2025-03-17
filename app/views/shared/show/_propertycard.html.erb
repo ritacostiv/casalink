@@ -68,13 +68,20 @@
     </div>
 
     <!-- Bottom section: property comments -->
-    <div class="property-comments-button" style="display: flex; align-items: center;">
+    <%# <div class="property-comments-button" style="display: flex; align-items: center;">
     <a href="#">
-    <span class="comments-icon">💬</span> 3 comments </a>
+    <span class="comments-icon">💬</span> 3 comments </a> %>
+
+    <!-- Bottom section: property comments -->
+     <div class="property-comments-button" style="display: flex; align-items: center;">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#commentModal<%= property.id %>" style="text-decoration: none; color: #666666; font-size: 14px;">
+        <span class="comments-icon">💬</span> <%= property.comments.count %> comments
+      </a>
     </div>
 
-
-  </div>
+  <!-- Render modals -->
   <%= render 'shared/show/delete_confirmation_modal', property: property %>
-    <%= render 'shared/show/edit_property_modal', collection: collection, property: property %>
+  <%= render 'shared/show/edit_property_modal', collection: collection, property: property %>
+  <%= render 'shared/show/comment_modal', property: property, comment: comment %>
+
 </div>
