@@ -3,6 +3,7 @@
 .navbar-lewagon {
   background: white;
   padding: 15px 0;
+  list-style: none;
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -61,10 +62,6 @@
 
 .navbar-lewagon {
 
-  .container-fluid {
-
-  }
-
   .navbar-collapse {
     justify-content: space-between;
   }
@@ -112,12 +109,6 @@
     &:hover i {
       color: #ef6c0e; /* Change icon color on hover */
     }
-  }
-
-  .navbar-nav .dashboard-link {
-    position: relative; /* Use relative positioning to allow custom placement */
-    margin-right: left; /* Push it to the far left by consuming all available space */
-    padding-left: 20px; /* Optional: Add padding to adjust spacing from the edge */
   }
 
 }
