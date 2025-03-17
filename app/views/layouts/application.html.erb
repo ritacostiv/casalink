@@ -24,7 +24,12 @@
   <%= render "shared/flashes" %>
   <%= javascript_include_tag "https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" %>
 
-  <%= yield %>
-  <%= render 'layouts/footer' %>
+    <div class="wrapper">
+      <main class="content">
+        <%= yield %> <!-- Page-specific content -->
+      </main>
+
+      <%= render "layouts/footer" %> <!-- Footer partial -->
+    </div>
   </body>
 </html>

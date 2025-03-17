@@ -1,0 +1,94 @@
+.edit-account-container {
+  max-width: 400px; /* Restrict the form width */
+  margin: 50px auto; /* Center the container horizontally and add vertical margin */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add a light shadow */
+  text-align: center;
+  font-family: 'Arial', sans-serif; /* Clean font style */
+}
+
+// .simple_form input,
+.simple_form select,
+.simple_form textarea {
+  width: 100%; /* Make inputs full width */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.simple_form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+.form-actions {
+  margin-top: 20px;
+}
+
+
+.back-link {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.signup-container {
+  max-width: 400px; /* Restrict width of the form */
+  margin: 50px auto; /* Center horizontally and add vertical spacing */
+  padding: 20px; /* Add padding inside the container */
+  background-color: #ffffff; /* White background for a clean look */
+  border: 1px solid #ddd; /* Light border for separation */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center; /* Center-align the heading */
+}
+
+/* Login Container */
+.login-container {
+  max-width: 400px; /* Restrict the width of the form */
+  margin: 50px auto; /* Center horizontally and add vertical space */
+  padding: 20px;
+  background-color: #ffffff; /* White background for clean design */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  text-align: center; /* Center the heading and buttons */
+}
+
+/* Unlock Form Container */
+.unlock-container {
+  max-width: 400px; /* Limit form width */
+  margin: 50px auto; /* Center horizontally and add vertical space */
+  padding: 20px;
+  background-color: #ffffff; /* White background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align heading and buttons */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Password Reset Form Container */
+.password-reset-container {
+  max-width: 400px; /* Restrict the form width */
+  margin: 50px auto; /* Center horizontally with vertical spacing */
+  padding: 20px; /* Add padding inside the container */
+  background-color: #ffffff; /* White background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align heading and buttons */
+  font-family: 'Arial', sans-serif;
+}

@@ -1,19 +1,21 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <div class="container-fluid">
-    <%= link_to collections_path(locale: I18n.locale), class: "navbar-brand" do %>
+  <div class="container-fluid d-flex align-items-center">
+    <!-- Logo -->
+    <%= link_to collections_path(locale: I18n.locale), class: "navbar-brand me-3" do %>
       <%= image_tag "logo.png" %>
     <% end %>
 
-  <!--Dashboard Button-->
+    <!-- Dashboard Button (Placed next to the logo) -->
     <ul class="navbar-nav align-items-center">
-      <li class="nav-item me-3">
+      <li class="nav-item">
         <%= link_to collections_path(locale: I18n.locale), class: "nav-link dashboard-link" do %>
-        <i class="fa-solid fa-table-columns me-2" style="font-size: 20px;"></i> <!-- Larger Dashboard Icon -->
+          <i class="fa-solid fa-table-columns me-2" style="font-size: 20px;"></i>
           My Collections
         <% end %>
       </li>
+    </ul>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -22,17 +24,15 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
+        <!-- Notifications Button -->
+        <li class="nav-item me-3">
+          <a href="#" class="nav-link notification-link">
+            <i class="fas fa-bell"></i>
+          </a>
+        </li>
 
-
-
-        <!--Notifications Button-->
-          <li class="nav-item me-3">
-            <a href="#" class="nav-link notification-link">
-              <i class="fas fa-bell"></i>
-            </a>
-          </li>
-
-      <% if controller_name == "pages" && action_name == "home" %> <!-- Adjust based on your setup -->
+        <% if controller_name == "pages" && action_name == "home" %>
+        <!-- Language Dropdown -->
         <div class="dropdown">
           <button class="dropdown-toggle">
             🌐
@@ -44,24 +44,23 @@
             <li><%= link_to "🇫🇷 Français", url_for(locale: :fr) %></li>
           </ul>
         </div>
-      <% end %>
+        <% end %>
 
-
-        <!--Initials Dropdown-->
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle text-decoration-none" id="navbarDropdown"
-              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <div class="avatar-circle" style="background-color: <%= avatar_color(current_user) %>;">
-                <span class="initials">
-                  <%= "#{current_user.first_name[0]}#{current_user.last_name[0]}".upcase %>
-                </span>
-              </div>
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Account", edit_user_registration_path(locale: I18n.locale), class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path(locale: I18n.locale), data: {turbo_method: :delete}, class: "dropdown-item" %>
+        <!-- Initials Dropdown -->
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle text-decoration-none" id="navbarDropdown"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="avatar-circle" style="background-color: <%= avatar_color(current_user) %>;">
+              <span class="initials">
+                <%= "#{current_user.first_name[0]}#{current_user.last_name[0]}".upcase %>
+              </span>
             </div>
-          </li>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "My Account", edit_user_registration_path(locale: I18n.locale), class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path(locale: I18n.locale), data: {turbo_method: :delete}, class: "dropdown-item" %>
+          </div>
+        </li>
         </ul>
       <% else %>
         <div class="navbar-nav ms-auto">
