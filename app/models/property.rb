@@ -6,6 +6,7 @@ class Property < ApplicationRecord
   after_create :set_property
   has_many :comments, dependent: :destroy
   belongs_to :user
+  after_update :update_property_track_changes
 
   # not needed because lat and long are already provided by the API
   # geocoded_by :address
@@ -44,5 +45,17 @@ class Property < ApplicationRecord
       latitude: doc["ubication"]["latitude"],
       longitude: doc["ubication"]["longitude"]
     )
+  end
+
+  private
+
+  def update_property_track_changes
+    return unless saved_changes?
+
+    if saved_change_to_attribute?(:created_at)
+      Event.create(user: user, property: self, property_name: name, url: url, event_type: 1)
+    else
+      Event.create(user: user, property: self, property_name: name, url: url, event_type: 0)
+    end
   end
 end
