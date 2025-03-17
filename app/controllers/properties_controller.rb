@@ -3,6 +3,7 @@ class PropertiesController < ApplicationController
     @collection = Collection.find(params[:collection_id])
     @property = Property.new(property_params)
     @property.collection = @collection
+    @property.user = current_user
 
     if @property.save
       redirect_to collection_path(@collection), notice: "success"

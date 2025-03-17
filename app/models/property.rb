@@ -5,6 +5,7 @@ class Property < ApplicationRecord
   belongs_to :collection
   after_create :set_property
   has_many :comments, dependent: :destroy
+  belongs_to :user
 
   # not needed because lat and long are already provided by the API
   # geocoded_by :address
