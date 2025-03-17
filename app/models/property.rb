@@ -51,8 +51,8 @@ class Property < ApplicationRecord
 
   def update_property_track_changes
     return unless saved_changes?
-    raise
-    if saved_change_to_attribute?(:id)
+
+    if saved_change_to_attribute?(:created_at)
       Event.create(user: user, property: self, property_name: name, url: url, event_type: 1)
     else
       Event.create(user: user, property: self, property_name: name, url: url, event_type: 0)
