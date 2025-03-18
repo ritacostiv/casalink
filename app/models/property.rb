@@ -3,12 +3,10 @@ require 'net/http'
 
 class Property < ApplicationRecord
   belongs_to :collection
-  after_create :set_property, :create_property_track_changes
+  after_create :set_property
   has_many :comments, dependent: :destroy
   has_many :events, dependent: :nullify
   belongs_to :user
-  after_update_commit :update_property_track_changes
-  before_destroy :destroy_property_track_changes
 
   # not needed because lat and long are already provided by the API
   # geocoded_by :address
@@ -46,37 +44,6 @@ class Property < ApplicationRecord
       image4: doc["multimedia"]["images"][3]["url"],
       latitude: doc["ubication"]["latitude"],
       longitude: doc["ubication"]["longitude"]
-    )
-  end
-
-  private
-
-  def create_property_track_changes
-    return unless saved_changes?
-
-    create_event(:property_creation)
-  end
-
-  def update_property_track_changes
-    return unless saved_changes?
-
-    create_event(:property_update)
-  end
-
-  def destroy_property_track_changes
-    create_event(:property_deletion)
-  end
-
-  def create_event(event_type)
-    Event.create(
-      property: self,
-      user_first_name: current_user.first_name,
-      user_last_name: current_user.last_name,
-      property_name: name,
-      url: url,
-      collection_name: collection.name,
-      collection_url: "/collections/#{collection.id}",
-      event_type: event_type
     )
   end
 end
