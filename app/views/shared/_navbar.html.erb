@@ -1,20 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <div class="container-fluid d-flex align-items-center">
+  <div class="container-fluid">
     <!-- Logo -->
-    <%= link_to collections_path(locale: I18n.locale), class: "navbar-brand me-3" do %>
+    <%= link_to collections_path(locale: I18n.locale), class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
 
-    <!-- Dashboard Button (Placed next to the logo) -->
-    <ul class="navbar-nav align-items-center">
-      <li class="nav-item">
-        <%= link_to collections_path(locale: I18n.locale), class: "nav-link dashboard-link" do %>
-          <i class="fa-solid fa-table-columns me-2" style="font-size: 20px;"></i>
-          My Collections
-        <% end %>
-      </li>
-    </ul>
-
+    <!-- Dashboard Link -->
+    <%= link_to collections_path(locale: I18n.locale), class: "dashboard-link" do %>
+      <i class="fa-solid fa-table-columns"></i>
+      My Collections
+    <% end %>
+</div>
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -32,18 +28,18 @@
         </li>
 
         <% if controller_name == "pages" && action_name == "home" %>
-        <!-- Language Dropdown -->
-        <div class="dropdown">
-          <button class="dropdown-toggle">
-            🌐
-          </button>
-          <ul class="dropdown-menu">
-            <li><%= link_to "🇬🇧 English", url_for(locale: :en) %></li>
-            <li><%= link_to "🇵🇹 Português", url_for(locale: :pt) %></li>
-            <li><%= link_to "🇪🇸 Español", url_for(locale: :es) %></li>
-            <li><%= link_to "🇫🇷 Français", url_for(locale: :fr) %></li>
-          </ul>
-        </div>
+          <!-- Language Dropdown -->
+          <div class="dropdown">
+            <button class="dropdown-toggle">
+              🌐
+            </button>
+            <ul class="dropdown-menu">
+              <li><%= link_to "🇬🇧 English", url_for(locale: :en) %></li>
+              <li><%= link_to "🇵🇹 Português", url_for(locale: :pt) %></li>
+              <li><%= link_to "🇪🇸 Español", url_for(locale: :es) %></li>
+              <li><%= link_to "🇫🇷 Français", url_for(locale: :fr) %></li>
+            </ul>
+          </div>
         <% end %>
 
         <!-- Initials Dropdown -->
@@ -61,7 +57,6 @@
             <%= link_to "Log out", destroy_user_session_path(locale: I18n.locale), data: {turbo_method: :delete}, class: "dropdown-item" %>
           </div>
         </li>
-        </ul>
       <% else %>
         <div class="navbar-nav ms-auto">
           <%= link_to "Login", new_user_session_path(locale: I18n.locale), class: "btn btn-outline-primary login-button me-2" %>
@@ -69,5 +64,5 @@
         </div>
       <% end %>
     </div>
-  </div>
+
 </div>
