@@ -54,6 +54,20 @@ class Property < ApplicationRecord
   def create_property_track_changes
     return unless saved_changes?
 
+    create_event(:property_creation)
+  end
+
+  def update_property_track_changes
+    return unless saved_changes?
+
+    create_event(:property_update)
+  end
+
+  def destroy_property_track_changes
+    create_event(:property_deletion)
+  end
+
+  def create_event(event_type)
     Event.create(
       user: user,
       property: self,
@@ -61,18 +75,7 @@ class Property < ApplicationRecord
       url: url,
       collection_name: collection.name,
       collection_url: "/collections/#{collection.id}",
-      event_type: :property_creation
+      event_type: event_type
     )
-  end
-
-  def update_property_track_changes
-    return unless saved_changes?
-
-    Event.create(user: user, property: self, property_name: name, url: url, event_type: :property_update)
-  end
-
-  def destroy_property_track_changes
-
-    Event.create(user: user, property_id: id, property_name: name, url: url, event_type: :property_deletion)
   end
 end

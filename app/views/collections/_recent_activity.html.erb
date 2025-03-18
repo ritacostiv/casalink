@@ -20,18 +20,20 @@
               <% case event.event_type %>
                 <% when "property_creation" %>
                 <%= "added #{event.property_name} to" %>
-                <strong> <%= redirect_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+                <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
                 <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
 
                 <% when "property_update" %>
                 <%= "edited #{event.property_name} in" %>
-                <strong> <%= link_to event.property.collection.name, collection_path(event.property.collection) unless event.property.nil? %> </strong>
+                <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
                 <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
 
                 <% when "property_deletion" %>
-                <%= "deleted #{event.property_name}" %>
+                <span> deleted </span>
+                <%= link_to event.property_name, event.url %>
+                <span> from </span>
+                <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
                 <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
-
               <% end %>
             </li>
           <% end %>
