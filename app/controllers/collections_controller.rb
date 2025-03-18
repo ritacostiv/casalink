@@ -4,6 +4,7 @@ class CollectionsController < ApplicationController
   def index
     @collections = Collection.all
     @collection = Collection.new
+    @recent_events = Event.order(created_at: :desc).limit(5)
   end
 
   def create
@@ -32,10 +33,6 @@ class CollectionsController < ApplicationController
       }
     end
   end
-
-
-
-
 
   private
 
