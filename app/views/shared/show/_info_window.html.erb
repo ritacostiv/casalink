@@ -1,0 +1,8 @@
+<div class="popup-container">
+  <% if property.image1.present? %>
+    <img src="<%= property.image1 %>" alt="Property Image" class="popup-image" />
+  <% end %>
+  <h3><%= property.name %></h3>
+  <p><%= property.address %></p>
+
+</div>

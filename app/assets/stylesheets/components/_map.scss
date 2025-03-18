@@ -6,3 +6,43 @@
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
+
+.reset-view-button:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.popup-container {
+  text-align: center;
+  max-width: 150px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.popup-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.popup-container h3 {
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.popup-container p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.popup-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.popup-container a:hover {
+  text-decoration: underline;
+}
