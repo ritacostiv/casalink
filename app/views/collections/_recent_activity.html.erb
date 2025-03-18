@@ -2,77 +2,44 @@
 <% if recent_events.any? %>
   <div class="recent-activity mt-5">
     <h2 class="mb-4">Recent Activity</h2>
+      <% recent_events.each do |event| %>
 
     <!-- Activity Item 1 -->
-    <div class="activity-item">
-      <div class="avatar-circle" style="background-color: #F8B195;">
-        <span class="initials">
-          <%#= "#{collection.user.first_name[0]}#{collection.user.last_name[0]}".upcase %>
-        </span>
-      </div>
-      <div class="activity-content">
-        <div class="activity-header">
-
-        <ul>
-          <% recent_events.each do |event| %>
-            <li>
-            <strong><%= event.user.first_name %></strong>
-              <% case event.event_type %>
-                <% when "property_creation" %>
-                <%= "added #{event.property_name} to" %>
-                <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
-                <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
-
-                <% when "property_update" %>
-                <%= "edited #{event.property_name} in" %>
-                <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
-                <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
-
-                <% when "property_deletion" %>
-                <span> deleted </span>
-                <%= link_to event.property_name, event.url %>
-                <span> from </span>
-                <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
-                <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-          <%# <span class="user-name">Rita Costiv</span>
-          <span class="activity-action">added a new property to</span>
-          <span class="collection-link">NYC Apartment Search</span> %>
+      <div class="activity-item">
+        <div class="avatar-circle" style="background-color: #F8B195;">
+          <span class="initials">
+            <%= "#{current_user.first_name[0]}#{current_user.last_name[0]}".upcase %>
+          </span>
         </div>
-        <%# <p class="activity-details">Modern Loft in SoHo • Today at 10:45 AM</p> %>
+        <div class="activity-content">
+          <div class="activity-header">
+            <strong><%= event.user_first_name %></strong>
+            <% case event.event_type %>
+              <% when "property_creation" %>
+              <span> added </span><%= link_to event.property_name, event.url %><span> to </span>
+              <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+              <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+
+              <% when "property_update" %>
+              <%= "edited #{event.property_name} in" %>
+              <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+              <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+
+              <% when "property_deletion" %>
+              <span> deleted </span>
+              <%= link_to event.property_name, event.url %>
+              <span> from </span>
+              <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+              <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+            <% end %>
+        </div>
       </div>
     </div>
   <% end %>
-  <!-- Activity Item 2 -->
-  <%# <div class="activity-item">
-    <div class="avatar-circle" style="background-color: #6C5B7B;">
-      <span class="initials">SM</span>
-    </div>
-    <div class="activity-content">
-      <div class="activity-header">
-        <span class="user-name">Simão</span>
-        <span class="activity-action">commented on a property in</span>
-        <span class="collection-link">Lisbon</span>
-      </div>
-      <p class="activity-details">Alfama Apartment • Yesterday at 4:30 PM</p>
-    </div>
+</div>
+<% else %>
+  <div class="recent-activity mt-5">
+    <h2 class="mb-4">Recent Activity</h2>
+    <p>No recent activity</p>
   </div>
-
-  <!-- Activity Item 3 -->
-  <div class="activity-item">
-    <div class="avatar-circle" style="background-color: #99B898;">
-      <span class="initials">MG</span>
-    </div>
-    <div class="activity-content">
-      <div class="activity-header">
-        <span class="user-name">Miguel</span>
-        <span class="activity-action">rated a property in</span>
-        <span class="collection-link">Lisbon</span>
-      </div>
-      <p class="activity-details">2 days ago</p>
-    </div>
-  </div>
-</div> %>
+<% end %>
