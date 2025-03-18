@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.property = @property
     @comment.user = current_user
-    
+
     if @comment.save
       redirect_to collection_path(@property.collection), notice: "Comment Added"
     else
