@@ -54,7 +54,15 @@ class Property < ApplicationRecord
   def create_property_track_changes
     return unless saved_changes?
 
-    Event.create(user: user, property: self, property_name: name, url: url, event_type: :property_creation)
+    Event.create(
+      user: user,
+      property: self,
+      property_name: name,
+      url: url,
+      collection_name: collection.name,
+      collection_url: "/collections/#{collection.id}",
+      event_type: :property_creation
+    )
   end
 
   def update_property_track_changes

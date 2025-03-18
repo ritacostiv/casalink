@@ -1,24 +1,51 @@
 <!-- app/views/collections/_recent_activity.html.erb -->
-<div class="recent-activity mt-5">
-  <h2 class="mb-4">Recent Activity</h2>
+<% if recent_events.any? %>
+  <div class="recent-activity mt-5">
+    <h2 class="mb-4">Recent Activity</h2>
 
-  <!-- Activity Item 1 -->
-  <div class="activity-item">
-    <div class="avatar-circle" style="background-color: #F8B195;">
-      <span class="initials">RC</span>
-    </div>
-    <div class="activity-content">
-      <div class="activity-header">
-        <span class="user-name">Rita Costiv</span>
-        <span class="activity-action">added a new property to</span>
-        <span class="collection-link">NYC Apartment Search</span>
+    <!-- Activity Item 1 -->
+    <div class="activity-item">
+      <div class="avatar-circle" style="background-color: #F8B195;">
+        <span class="initials">
+          <%#= "#{collection.user.first_name[0]}#{collection.user.last_name[0]}".upcase %>
+        </span>
       </div>
-      <p class="activity-details">Modern Loft in SoHo • Today at 10:45 AM</p>
-    </div>
-  </div>
+      <div class="activity-content">
+        <div class="activity-header">
 
+        <ul>
+          <% recent_events.each do |event| %>
+            <li>
+            <strong><%= event.user.first_name %></strong>
+              <% case event.event_type %>
+                <% when "property_creation" %>
+                <%= "added #{event.property_name} to" %>
+                <strong> <%= redirect_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+                <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+
+                <% when "property_update" %>
+                <%= "edited #{event.property_name} in" %>
+                <strong> <%= link_to event.property.collection.name, collection_path(event.property.collection) unless event.property.nil? %> </strong>
+                <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+
+                <% when "property_deletion" %>
+                <%= "deleted #{event.property_name}" %>
+                <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+          <%# <span class="user-name">Rita Costiv</span>
+          <span class="activity-action">added a new property to</span>
+          <span class="collection-link">NYC Apartment Search</span> %>
+        </div>
+        <%# <p class="activity-details">Modern Loft in SoHo • Today at 10:45 AM</p> %>
+      </div>
+    </div>
+  <% end %>
   <!-- Activity Item 2 -->
-  <div class="activity-item">
+  <%# <div class="activity-item">
     <div class="avatar-circle" style="background-color: #6C5B7B;">
       <span class="initials">SM</span>
     </div>
@@ -46,4 +73,4 @@
       <p class="activity-details">2 days ago</p>
     </div>
   </div>
-</div>
+</div> %>
