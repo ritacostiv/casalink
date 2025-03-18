@@ -21,7 +21,10 @@
               <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
 
               <% when "comment_creation" %>
-              <span> commented on </span><%= event.property_name %><span> in </span>
+              <span>
+                <span class="comment-hover" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= event.comment_text %>">commented</span> on
+              </span>
+              <%= event.property_name %><span> in </span>
               <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
               <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
 
@@ -48,3 +51,5 @@
     <p>No recent activity</p>
   </div>
 <% end %>
+
+

@@ -2,8 +2,16 @@
 .recent-activity {
   margin-top: 40px;
 
+  .activity-content {
+    font-size: 18px; /* Adjust this value as needed */
+  }
+
+  a {
+    text-decoration: none;
+  }
+
   h2 {
-    font-size: 20px;
+    font-size: 24px;
     color: #333;
     margin-bottom: 30px;
   }
@@ -14,6 +22,7 @@
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;
+    text-decoration: none;
 
     &:last-child {
       border-bottom: none;
@@ -52,6 +61,7 @@
       .collection-link {
         color: #FFA500;
         font-weight: 500;
+        text-decoration: none;
       }
     }
 
@@ -60,4 +70,38 @@
       font-size: 14px;
     }
   }
+}
+
+.comment-hover {
+  cursor: zoom-in;
+  color:#f0a00c;
+}
+
+
+
+.custom-tooltip-theme {
+  --bs-tooltip-bg: #ffffff;       /* White background */
+  --bs-tooltip-color: #333;       /* Dark text */
+  --bs-tooltip-max-width: 300px;  /* Wider tooltip */
+  --bs-tooltip-padding-x: 1rem;   /* More horizontal padding */
+  --bs-tooltip-padding-y: 0.8rem; /* More vertical padding */
+  --bs-tooltip-arrow-height: 0.5rem; /* Bigger arrow */
+  opacity: 1 !important;          /* Fully opaque */
+  box-shadow: 0 20px 35px rgba(0,0,0,0.1); /* Softer shadow */
+  border: none;                   /* Remove border */
+  border-radius: 12px !important; /* Rounded corners */
+}
+
+.tooltip-inner {
+  border-radius: 10px !important; /* Ensure inner content has rounded corners too */
+  background-color: white !important; /* Override Bootstrap's default */
+  padding: 15px !important;       /* More padding */
+}
+
+.large-tooltip {
+  font-size: 16px !important;
+  text-align: left !important;
+  white-space: normal !important;  /* Allow text wrapping */
+  font-style: italic;              /* Italic text */
+  line-height: 1.5 !important;     /* Better line spacing */
 }
