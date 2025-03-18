@@ -8,7 +8,7 @@
       <div class="activity-item">
         <div class="avatar-circle" style="background-color: #F8B195;">
           <span class="initials">
-            <%= "#{current_user.first_name[0]}#{current_user.last_name[0]}".upcase %>
+            <%= "#{event.user_first_name&.first}#{event.user_last_name&.first}".upcase %>
           </span>
         </div>
         <div class="activity-content">

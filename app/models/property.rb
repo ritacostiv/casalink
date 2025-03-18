@@ -70,8 +70,8 @@ class Property < ApplicationRecord
   def create_event(event_type)
     Event.create(
       property: self,
-      user_first_name: current_user.first_name,
-      user_last_name: current_user.last_name,
+      user_first_name: user.first_name,
+      user_last_name: user.last_name,
       property_name: name,
       url: url,
       collection_name: collection.name,
