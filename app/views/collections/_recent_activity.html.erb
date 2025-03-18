@@ -6,7 +6,7 @@
 
     <!-- Activity Item 1 -->
       <div class="activity-item">
-        <div class="avatar-circle" style="background-color: #F8B195;">
+        <div class="avatar-circle" style="background-color: <%= avatar_color(event.user) %>;">
           <span class="initials">
             <%= "#{event.user_first_name&.first}#{event.user_last_name&.first}".upcase %>
           </span>
@@ -17,6 +17,11 @@
             <% case event.event_type %>
               <% when "property_creation" %>
               <span> added </span><%= link_to event.property_name, event.url %><span> to </span>
+              <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+              <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+
+              <% when "comment_creation" %>
+              <span> commented on </span><%= event.property_name %><span> in </span>
               <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
               <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
 
