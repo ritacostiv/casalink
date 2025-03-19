@@ -54,6 +54,7 @@ gem "nokogiri"
 gem 'httparty'
 gem 'geocoder'
 gem 'solid_cable'
+gem 'meta-tags'
 
 group :development, :test do
   gem "dotenv-rails"
