@@ -5,8 +5,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import * as bootstrap from "bootstrap"
 
-import './components/animate_feature_row';
-import './components/popup_card';
+// import './components/animate_feature_row';
+// import './components/popup_card';
 
 document.addEventListener('turbo:load', function() {
   // Initialize tooltips
@@ -21,9 +21,9 @@ document.addEventListener('turbo:load', function() {
     })
   })
 
-  // Initialize dropdowns
-  var dropdownTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'))
-  var dropdownList = dropdownTriggerList.map(function (dropdownTriggerEl) {
-    return new bootstrap.Dropdown(dropdownTriggerEl)
-  })
+  // // Initialize dropdowns
+  // var dropdownTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'))
+  // var dropdownList = dropdownTriggerList.map(function (dropdownTriggerEl) {
+  //   return new bootstrap.Dropdown(dropdownTriggerEl)
+  // })
 })
