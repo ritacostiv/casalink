@@ -23,7 +23,10 @@ class CollectionsController < ApplicationController
     @collection = Collection.find(params[:id])
     @properties = @collection.properties.order(created_at: :desc) # Load only properties belonging to the collection
     @property = Property.new
-
+    @typologies = @properties.pluck(:typology).uniq.sort_by(&:to_i)
+    @prices = @properties.pluck(:price).compact.map(&:to_f).uniq.sort
+    @sizes = @properties.pluck(:size).compact.map(&:to_i).uniq.sort
+    
     # Build markers for the map
     @markers = @properties.map do |property|
       {
