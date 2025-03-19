@@ -1,0 +1,38 @@
+<div class="activity-item">
+  <div class="avatar-circle" style="background-color: <%= avatar_color(event.user) unless event.user.nil?  %>;">
+    <span class="initials">
+      <%= "#{event.user_first_name&.first}#{event.user_last_name&.first}".upcase %>
+    </span>
+  </div>
+    <div class="activity-content">
+      <div class="activity-header">
+        <strong><%= event.user_first_name %></strong>
+        <% case event.event_type %>
+          <% when "property_creation" %>
+          <span> added </span><%= link_to event.property_name, event.url %><span> to </span>
+          <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+          <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+
+          <% when "comment_creation" %>
+          <span>
+            <span class="comment-hover" data-bs-toggle="tooltip" data-bs-placement="top" title="<%= event.comment_text %>">commented</span> on
+          </span>
+          <%= event.property_name %><span> in </span>
+          <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+          <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+
+          <% when "property_update" %>
+          <%= "edited #{event.property_name} in" %>
+          <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+          <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+
+          <% when "property_deletion" %>
+          <span> deleted </span>
+          <%= link_to event.property_name, event.url %>
+          <span> from </span>
+          <strong> <%= link_to event.collection_name, event.collection_url unless event.collection_url.nil? && event.collection_name.nil? %> </strong>
+          <span class="timestamp"><%= time_ago_in_words(event.created_at) %> ago</span>
+        <% end %>
+    </div>
+  </div>
+</div>
