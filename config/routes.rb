@@ -15,9 +15,14 @@ Rails.application.routes.draw do
     resources :properties, only: [:create, :destroy, :edit, :update]
   end
 
-  resources :properties, only: [] do
-    resources :comments, only: [:create]
-  end
+# Standalone properties routes for filtering and index
+resources :properties, only: [:index] do
+  resources :comments, only: [:create]
+end
 
-  get '/search', to: 'search#index', as: 'search'
+# Add filter options route for properties
+get '/properties/filter_options', to: 'properties#filter_options'
+
+# Search route
+get '/search', to: 'search#index', as: 'search'
 end

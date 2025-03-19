@@ -4,8 +4,12 @@
       <!-- Header section -->
       <%= render 'shared/show/header', collection: @collection, collections: @collections %>
 
+      <!-- Property filter -->
+      <%= render 'shared/show/filter_modal' %>
+
       <!-- Content area  -->
       <div class="content-area">
+
 
       <!-- Left column - Property cards -->
       <%# <div class="left-column"> %>
@@ -15,6 +19,8 @@
       <% end %>
       </div>
       <%# </div> %>
+
+
 
       <!-- Right column - Details -->
       <div class="right-column">

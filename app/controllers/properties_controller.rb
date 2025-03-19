@@ -33,6 +33,40 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def filter_options
+    @prices = Property.pluck(:price).uniq.sort
+    @sizes = Property.pluck(:size).uniq.sort
+    @typologies = Property.pluck(:typology).uniq.sort
+    @ratings = Property.pluck(:rating).uniq.sort
+
+    render json: {
+      prices: @prices,
+      sizes: @sizes,
+      typologies: @typologies,
+      ratings: @ratings
+    }
+  end
+
+  def index
+    @properties = Property.all
+
+    # Apply filters dynamically
+    @properties = @properties.where("price >= ?", params[:min_price]) if params[:min_price].present?
+    @properties = @properties.where("price <= ?", params[:max_price]) if params[:max_price].present?
+    @properties = @properties.where("size >= ?", params[:min_size]) if params[:min_size].present?
+    @properties = @properties.where("size <= ?", params[:max_size]) if params[:max_size].present?
+    @properties = @properties.where(typology: params[:typology]) if params[:typology].present?
+    @properties = @properties.where(elevator: true) if params[:elevator].present? && params[:elevator] == "true"
+    @properties = @properties.where(garage: true) if params[:garage].present? && params[:garage] == "true"
+
+    respond_to do |format|
+      format.html
+      format.js { render partial: "properties/list", locals: { properties: @properties } }
+    end
+  end
+
+
+
   def update
     @collection = Collection.find(params[:collection_id])
     @property = @collection.properties.find(params[:id])

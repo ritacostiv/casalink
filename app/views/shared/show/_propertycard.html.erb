@@ -1,133 +1,125 @@
-  <!-- app/views/shared/show/_propertycard.html.erb -->
-  <div class="property-card">
+<div class="property-card"
+     data-price="<%= property.price %>"
+     data-size="<%= property.size %>"
+     data-typology="<%= property.typology %>"
+     data-elevator="<%= property.elevator %>"
+     data-garage="<%= property.garage %>">
   <div class="property-content">
 
+    <div class="property-image">
+      <div id="propertyCarousel<%= property.id %>" class="carousel slide">
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+          <% if property.image1.present? %>
+            <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <% end %>
+          <% if property.image2.present? %>
+            <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <% end %>
+          <% if property.image3.present? %>
+            <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <% end %>
+          <% if property.image4.present? %>
+            <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <% end %>
+        </div>
 
+        <!-- Carousel Items -->
+        <div class="carousel-inner">
+          <% if property.image1.present? %>
+            <div class="carousel-item active">
+              <%= image_tag property.image1, class: "d-block w-100", alt: "Image 1" %>
+            </div>
+          <% end %>
+          <% if property.image2.present? %>
+            <div class="carousel-item">
+              <%= image_tag property.image2, class: "d-block w-100", alt: "Image 2" %>
+            </div>
+          <% end %>
+          <% if property.image3.present? %>
+            <div class="carousel-item">
+              <%= image_tag property.image3, class: "d-block w-100", alt: "Image 3" %>
+            </div>
+          <% end %>
+          <% if property.image4.present? %>
+            <div class="carousel-item">
+              <%= image_tag property.image4, class: "d-block w-100", alt: "Image 4" %>
+            </div>
+          <% end %>
+        </div>
 
-
-<div class="property-image">
-  <div id="propertyCarousel<%= property.id %>" class="carousel slide">
-    <!-- Carousel Indicators -->
-    <div class="carousel-indicators">
-      <% if property.image1.present? %>
-        <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <% end %>
-      <% if property.image2.present? %>
-        <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <% end %>
-      <% if property.image3.present? %>
-        <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <% end %>
-      <% if property.image4.present? %>
-        <button type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide-to="3" aria-label="Slide 4"></button>
-      <% end %>
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
 
-    <!-- Carousel Items -->
-    <div class="carousel-inner">
-      <% if property.image1.present? %>
-        <div class="carousel-item active">
-          <%= image_tag property.image1, class: "d-block w-100", alt: "Image 1" %>
+    <!-- Property details container -->
+    <div class="property-details">
+      <div class="property-header">
+        <div class="property-title-container">
+          <h2 class="property-title"><%= property.name %></h2>
+          <span class="location-pin"
+                data-lat="<%= property.latitude %>"
+                data-lng="<%= property.longitude %>"
+                data-address="<%= property.address %>">📍</span>
+          <div class="delete-property-button">
+            <button type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#deleteConfirmationModal<%= property.id %>"
+              style="text-decoration: none; color: #666666; font-size: 15px; background: none; border: none; padding: 0;"> 🗑️
+            </button>
+          </div>
+          <div class="property-rating">4.5/5</div>
         </div>
-      <% end %>
-      <% if property.image2.present? %>
-        <div class="carousel-item">
-          <%= image_tag property.image2, class: "d-block w-100", alt: "Image 2" %>
-        </div>
-      <% end %>
-      <% if property.image3.present? %>
-        <div class="carousel-item">
-          <%= image_tag property.image3, class: "d-block w-100", alt: "Image 3" %>
-        </div>
-      <% end %>
-      <% if property.image4.present? %>
-        <div class="carousel-item">
-          <%= image_tag property.image4, class: "d-block w-100", alt: "Image 4" %>
-        </div>
-      <% end %>
+      </div>
+
+      <!-- Edit Details -->
+      <div class="edit-details-button">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#editPropertyModal<%= property.id %>" style="color:rgb(235, 110, 8); text-decoration: none; font-size: 12px;">
+        ✏️ Edit</a>
+      </div>
+
+      <!-- Amenities -->
+      <div class="property-amenities-row">
+        <span class="property-amenities-tag price">€<%= number_with_delimiter(property.price.to_s.gsub(/[^\d.]/, '').to_f.round) %></span>
+        <span class="property-amenities-tag size"><%= property.size %>m²</span>
+      </div>
+      <div class="property-amenities-row">
+        <span class="property-amenities-tag typology">T<%= property.typology %></span>
+        <span class="property-amenities-tag elevator"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
+        <span class="property-amenities-tag garage"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
+      </div>
     </div>
-
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#propertyCarousel<%= property.id %>" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-  <!-- Property details container -->
-  <div class="property-details">
-  <div class="property-header">
-  <div class="property-title-container">
-  <h2 class="property-title"><%= property.name %></h2>
-  <span class="location-pin" data-address="<%= property.address %>">📍</span>
-  <div class="delete-property-button">
-    <button type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#deleteConfirmationModal<%= property.id %>"
-      style="text-decoration: none; color: #666666; font-size: 15px; background: none; border: none; padding: 0;"> 🗑️
-    </button>
-  </div>
-  <div class="property-rating">4.5/5</div>
-  </div>
   </div>
 
-  <!-- Edit Details  -->
-  <div class="edit-details-button">
-    <a href="#" data-bs-toggle="modal" data-bs-target="#editPropertyModal<%= property.id %>" style="color:rgb(235, 110, 8); text-decoration: none; font-size: 12px;">
-  ✏️ Edit</a>
-  </div>
-
-  <!-- Amenities -->
-  <div class="property-amenities-row">
-  <span class="property-amenities-tag">€<%= number_with_delimiter(property.price.to_s.gsub(/[^\d.]/, '').to_f.round) %></span>
-  <span class="property-amenities-tag"><%= property.size %>m²</span>
-  </div>
-  <div class="property-amenities-row">
-  <span class="property-amenities-tag">T<%= property.typology %></span>
-  <span class="property-amenities-tag"><%= property.elevator ? "✅ Elevator" : "❌ Elevator" %></span>
-  <span class="property-amenities-tag"><%= property.garage ? "✅ Garage" : "❌ Garage" %></span>
-  </div>
-</div>
-  </div>
-
-
-  <!-- Bottom section: Link-->
+  <!-- Bottom section: Link -->
   <div style="display: flex; justify-content: space-between; padding-top: 15px; margin-top: 10px; border-top: 1px solid #f0f0f0;">
-  <div style="display: flex; align-items: center;">
-  <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
-  <%= link_to "🔗 by #{property.user.first_name} on", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
-  <span style="margin-left: 5px; color: #666666; font-size: 14px;"><%= property.created_at.strftime("%b %d, %H:%M") %></span>
-  </div>
-  </div>
+    <div style="display: flex; align-items: center;">
+      <div class="url-link-to" style="font-size: 14px; text-decoration: none;">
+        <%= link_to "🔗 by #{property.user.first_name} on", property.url, style: "text-decoration: none; color: #666666;", target: "_blank" %>
+        <span style="margin-left: 5px; color: #666666; font-size: 14px;"><%= property.created_at.strftime("%b %d, %H:%M") %></span>
+      </div>
+    </div>
 
-
-  <!-- Bottom section: Property Comments -->
-  <div class="comments-section">
-  <div class="property-comments-button" style="display: flex; align-items: center;">
-  <a href="#" data-bs-toggle="modal" data-bs-target="#commentModal<%= property.id %>" style="text-decoration: none; color: #666666; font-size: 14px;">
-  <span class="comments-icon">💬</span> <%= property.comments.count %> comments
-  </a>
-  </div>
-  </div>
+    <!-- Bottom section: Property Comments -->
+    <div class="comments-section">
+      <div class="property-comments-button" style="display: flex; align-items: center;">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#commentModal<%= property.id %>" style="text-decoration: none; color: #666666; font-size: 14px;">
+          <span class="comments-icon">💬</span> <%= property.comments.count %> comments
+        </a>
+      </div>
+    </div>
   </div>
 
   <!-- Render modals -->
   <%= render 'shared/show/delete_confirmation_modal', property: property %>
   <%= render 'shared/show/edit_property_modal', collection: collection, property: property %>
   <%= render 'shared/show/comment_modal', property: property, comment: Comment.new %>
-
-  </div>
+</div>

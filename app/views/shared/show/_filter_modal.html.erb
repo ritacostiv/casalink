@@ -1,0 +1,104 @@
+<div data-controller="filter" class="filter-container">
+
+  <button type="button" id="toggle-sort-button" class="filter-toggle-button">Sort By</button>
+
+  <div id="sort-dropdown" class="sort-dropdown-container" style="display: none;">
+    <div class="sort-box">
+      <!-- Order -->
+      <fieldset class="sort-item">
+        <legend>Order</legend>
+        <label>
+          <input type="radio" name="sort-order" value="asc" checked> Ascending
+        </label>
+        <label>
+          <input type="radio" name="sort-order" value="desc"> Descending
+        </label>
+      </fieldset>
+
+      <!-- Sort By -->
+      <fieldset class="sort-item">
+        <legend>Sort By</legend>
+        <select id="sort-options" class="sort-dropdown">
+          <option value="price">Price</option>
+          <option value="size">Size</option>
+          <option value="typology">Typology</option>
+          <option value="garage">Garage</option>
+          <option value="elevator">Elevator</option>
+        </select>
+      </fieldset>
+    </div>
+
+  <!-- Apply Sort Button -->
+  <button type="button" id="apply-sort-button" class="apply-sort-button">Apply Sort</button>
+</div>
+
+
+  <!-- filter Toggle Button -->
+  <button type="button" id="toggle-filter-button" class="filter-toggle-button">Filters</button>
+
+  <!-- Filter Form -->
+  <form id="filter-form" data-filter-target="form" data-action="submit->filter#applyFilters" style="display: none;">
+    <div class="filter-row">
+
+      <!-- Search -->
+      <fieldset class="filter-item">
+        <legend>Search</legend>
+        <input type="text" id="search-box" name="search" placeholder="Search by keywords..." />
+      </fieldset>
+
+      <!-- Price Range -->
+      <fieldset class="filter-item">
+        <legend>Price (€)</legend>
+        <select id="price" name="price">
+          <option value="">All</option>
+          <% @prices.each do |price| %>
+            <option value="<%= price %>"><%= number_with_delimiter(price, delimiter: ",") %> €</option>
+          <% end %>
+        </select>
+      </fieldset>
+
+      <!-- Size -->
+      <fieldset class="filter-item">
+        <legend>Size (m²)</legend>
+        <select id="size" name="size">
+          <option value="">All</option>
+          <% @sizes.each do |size| %>
+            <option value="<%= size %>"><%= size %> m²</option>
+          <% end %>
+        </select>
+      </fieldset>
+
+      <!-- Typology -->
+      <fieldset class="filter-item">
+        <legend>Typology</legend>
+        <select id="typology" name="typology">
+          <option value="">All</option>
+          <% @properties.pluck(:typology).uniq.sort_by(&:to_i).each do |typology| %>
+            <option value="<%= typology %>">T<%= typology %></option>
+          <% end %>
+        </select>
+      </fieldset>
+
+      <!-- Garage -->
+      <fieldset class="filter-item">
+        <legend>Garage</legend>
+        <label>
+          <input type="checkbox" name="garage" value="true"> Garage
+        </label>
+      </fieldset>
+
+      <!-- Elevator -->
+      <fieldset class="filter-item">
+        <legend>Elevator</legend>
+        <label>
+          <input type="checkbox" name="elevator" value="true"> Elevator
+        </label>
+      </fieldset>
+
+      <!-- Apply Filters Button -->
+      <div class="filter-item">
+        <button type="submit" class="apply-filters-button">Filters</button>
+      </div>
+    </div>
+  </form>
+</div>

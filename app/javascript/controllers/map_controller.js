@@ -29,28 +29,78 @@ export default class extends Controller {
 
     // Add zoom controls to the map
     this.#addZoomControls();
+
+    // Add listeners to location pins
+    this.#addLocationPinListeners(); // NEW
   }
 
   #addMarkersToMap() {
     const markerImageUrl = this.markerImageUrlValue; // Retrieve the image URL from the data attribute
-    console.log("Marker Image URL:", markerImageUrl); // Debugging
 
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html); // Attach popup
 
       // Use the custom image for the marker
       const customMarker = document.createElement("img");
-      customMarker.src = markerImageUrl; // Set the marker image
-      customMarker.style.width = "30px"; // Adjust size
-      customMarker.style.height = "30px"; // Adjust size
+      customMarker.src = markerImageUrl;
+      customMarker.style.width = "30px";
+      customMarker.style.height = "30px";
 
-      // Add the custom marker with the popup
-      new mapboxgl.Marker(customMarker)
+      // Create the marker
+      const mapMarker = new mapboxgl.Marker(customMarker)
         .setLngLat([marker.lng, marker.lat]) // Position the marker
-        .setPopup(popup) // Attach the popup
-        .addTo(this.map); // Add to the map
+        .setPopup(popup)
+        .addTo(this.map);
+
+      // Add data attributes for lat/lng
+      const markerElement = mapMarker.getElement(); // Get the DOM element
+      markerElement.dataset.lat = marker.lat;
+      markerElement.dataset.lng = marker.lng;
     });
   }
+
+
+  #addLocationPinListeners() {
+    // Select all location pins
+    const locationPins = document.querySelectorAll(".location-pin");
+
+    locationPins.forEach((pin) => {
+      pin.addEventListener("click", (event) => {
+        // Get latitude and longitude from data attributes
+        const lat = parseFloat(pin.dataset.lat);
+        const lng = parseFloat(pin.dataset.lng);
+
+        // Highlight the corresponding marker
+        this.#highlightMarker(lat, lng);
+      });
+    });
+  }
+
+  #highlightMarker(lat, lng) {
+    // Select all markers
+    const markers = document.querySelectorAll("img[src='" + this.markerImageUrlValue + "']");
+
+    markers.forEach((marker) => {
+      // Get marker position from its parent container
+      const markerPosition = marker.closest(".mapboxgl-marker")._lngLat;
+
+      // Check if the marker matches the target coordinates
+      if (markerPosition.lng === lng && markerPosition.lat === lat) {
+        // Highlight this marker
+        marker.style.width = "50px"; // Larger width
+        marker.style.height = "50px"; // Larger height
+        marker.style.transition = "transform 0.3s ease";
+        marker.style.transform = "scale(1.25)"; // Smooth zoom effect
+      } else {
+        // Reset other markers to their normal size
+        marker.style.width = "30px";
+        marker.style.height = "30px";
+        marker.style.transform = "scale(1)";
+      }
+    });
+  }
+
+
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds();
