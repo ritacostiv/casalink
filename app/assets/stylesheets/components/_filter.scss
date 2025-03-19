@@ -1,0 +1,187 @@
+.filter-toggle-button {
+  background-color: #27b6c6;; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Space between button and form */
+}
+
+.filter-toggle-button:hover {
+  background-color: #27b6c678; /* Darker hover effect */
+}
+
+.filter-row {
+  display: flex;
+  gap: 20px; /* Space between filter items */
+  justify-content: space-between; /* Spread filters across the row */
+  flex-wrap: wrap; /* Ensure responsive design */
+  flex-direction: row;
+  align-items: center;
+}
+
+.filter-item {
+  flex: 1; /* Equal space for all filters */
+  min-width: 120px; /* Minimum width for small screens */
+}
+
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+}
+
+span {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.apply-filters-button {
+  background-color: #27b6c6;;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.apply-filters-button:hover {
+  background-color: #27b6c6;;
+}
+
+
+#typology {
+  width: 50px; /* Adjust the width for a smaller dropdown */
+  padding: 3px; /* Reduce padding for a compact look */
+  font-size: 12px; /* Use a smaller font size */
+  border-radius: 5px; /* Maintain rounded corners */
+  border: 1px solid #ccc; /* Keep a clean border style */
+}
+
+.noUi-target {
+  background: #ddd;
+  border-radius: 4px;
+  height: 10px;
+  margin: 10px 0;
+}
+
+.noUi-handle {
+  background-color: #27b6c6;;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  cursor: grab;
+}
+
+.noUi-connect {
+  background: #27b6c6;;
+}
+
+#filter-form {
+  border: 1px solid #ccc;
+  border-radius: 15px; /* Rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for a lifted effect */
+  padding: 15px; /* Add space inside the frame */
+  background-color: #f9f9f9; /* Light background for contrast */
+  margin-bottom: 10px;
+}
+
+#search-box {
+  width: calc(100% - 20px); /* Allow the search box to fill the container with some padding */
+  max-width: 600px; /* Increase the maximum width */
+  padding: 10px; /* Add extra padding for a balanced design */
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter-item:first-child {
+  flex: 2; /* Double the space allocated to the search box */
+  max-width: 100%; /* Ensure it can grow within its container */
+}
+
+.sort-dropdown-container {
+  display: none; /* Initially hidden */
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin-top: 10px;
+  width: 250px;
+}
+
+fieldset {
+  margin-bottom: 15px;
+  border: none;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.sort-dropdown {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.apply-sort-button {
+  background-color: #27b6c6;; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Space between button and form */
+  align-self: flex-start; /* Align the button with the other items */
+}
+
+.apply-sort-button:hover {
+  background-color: #27b6c678; /* Darker hover effect */
+}
+
+.sort-box {
+  display: flex;
+  flex-direction: row; /* Horizontal layout */
+  gap: 20px; /* Space between items */
+  align-items: center; /* Align elements vertically */
+  margin-bottom: 15px; /* Spacing below the row */
+}
+
+.sort-item {
+  display: flex;
+  flex-direction: column; /* Keeps labels and inputs stacked vertically */
+  flex: 1; /* Ensure items share equal space */
+}
