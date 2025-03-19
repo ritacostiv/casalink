@@ -3,10 +3,22 @@
 <html>
   <head>
     <title>Casalink - All Your Housing Options, One Organized Place</title>
+    <%= display_meta_tags(
+        site: 'Casalink',
+        title: 'All Your Housing Options, One Organized Place',
+        description: 'Easily add properties from popular platforms, collaborate in real-time, and share your housing search.',
+        og: {
+          title:    'Casalink - All Your Housing Options, One Organized Place',
+          description: 'Easily add properties from popular platforms, collaborate in real-time, and share your housing search.',
+          url:      root_url,
+          image:    image_url('og-image.png')
+        }
+    ) %>
     <%= favicon_link_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" %>
