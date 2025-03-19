@@ -9,7 +9,7 @@ export default class extends Controller {
 
     // Cache all property cards
     this.propertyCards = Array.from(document.querySelectorAll(".properties-list-left .property-card"));
-
+    console.log(this.propertyCards)
     // Attach the toggle functionality for the filter form
     const toggleButton = document.getElementById("toggle-filter-button");
     if (toggleButton) {
@@ -159,6 +159,7 @@ export default class extends Controller {
 
       // Determine visibility
       const isVisible = matchesSearch && matchesTypology && matchesPrice && matchesSize && matchesElevator && matchesGarage;
+      console.log(isVisible)
       card.style.display = isVisible ? "block" : "none";
     });
 
