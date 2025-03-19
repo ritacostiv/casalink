@@ -53,7 +53,7 @@ gem "sassc-rails"
 gem "nokogiri"
 gem 'httparty'
 gem 'geocoder'
-
+gem 'solid_cable'
 
 group :development, :test do
   gem "dotenv-rails"

@@ -1,11 +1,14 @@
 <!-- app/views/collections/_recent_activity.html.erb -->
-<% if recent_events.any? %>
-  <div class="recent-activity mt-5">
+  <div id="recent-activity" class="recent-activity mt-5">
     <h2 class="mb-4">Recent Activity</h2>
-      <% recent_events.each do |event| %>
-        <%= render "event", event: event %>
-      <% end %>
-  </div>
+    <ul id="recent-activity-list">
+      <%= turbo_stream_from "recent_activity" %>
+      <% if recent_events.any? %>
+        <% recent_events.each do |event| %>
+          <%= render "events/event", event: event %>
+        <% end %>
+      </ul>
+    </div>
   <% else %>
   <div class="recent-activity mt-5">
     <h2 class="mb-4">Recent Activity</h2>

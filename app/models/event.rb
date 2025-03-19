@@ -1,4 +1,9 @@
 class Event < ApplicationRecord
+  after_create_commit -> {
+    broadcast_prepend_to "recent_activity", target: "recent-activity-list", partial: "events/event", locals: { event: self }
+    broadcast_prepend_to "notifications", target: "notifications-list", partial: "events/notification", locals: { event: self }
+  }
+  
   belongs_to :user
   belongs_to :property
 
