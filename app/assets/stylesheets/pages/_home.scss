@@ -60,9 +60,9 @@ body {
       .logo-icon {
         display: inline-block;
         margin-bottom: 10px;
-        opacity: 0; /* Start hidden */
-        animation: fadeIn 1s ease-in forwards; /* Fade-in animation */
-        animation-delay: 1s; /* Delay of 3 seconds before fading in */
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+        animation-delay: 1s; 
 
         img {
           width: 40px;

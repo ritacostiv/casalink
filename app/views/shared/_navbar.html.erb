@@ -6,12 +6,14 @@
     <% end %>
 
     <!-- Dashboard Link -->
-    <%= link_to collections_path(locale: I18n.locale), class: "dashboard-link" do %>
-      <i class="fa-solid fa-table-columns"></i>
-      My Collections
+    <% if user_signed_in? %>
+      <%= link_to collections_path(locale: I18n.locale), class: "dashboard-link" do %>
+        <i class="fa-regular fa-layer-group"></i>
+        My Collections
+      <% end %>
     <% end %>
-</div>
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -19,56 +21,73 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <% if user_signed_in? %>
-
+      <ul class="navbar-nav ms-auto align-items-center">
+        <% if user_signed_in? %>
         <!-- Notifications Button -->
-      <li class="nav-item dropdown" data-controller="notifications">
-        <a href="#" class="nav-link notification-link" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fas fa-bell"></i>
-        <span id="notification-badge" class="badge bg-danger d-none" data-notifications-target="badge">!</span>
-        </a>
-        <ul id="notifications-list" class="dropdown-menu dropdown-menu-end">
-          <%= turbo_stream_from "notifications" %>
-          <li><p class="dropdown-item text-muted">No new notifications</p></li>
-        </ul>
-      </li>
-
-        <% if controller_name == "pages" && action_name == "home" %>
-          <!-- Language Dropdown -->
-          <div class="dropdown">
-            <button class="dropdown-toggle">
-              🌐
-            </button>
-            <ul class="dropdown-menu">
-              <li><%= link_to "🇬🇧 English", url_for(locale: :en) %></li>
-              <li><%= link_to "🇵🇹 Português", url_for(locale: :pt) %></li>
-              <li><%= link_to "🇪🇸 Español", url_for(locale: :es) %></li>
-              <li><%= link_to "🇫🇷 Français", url_for(locale: :fr) %></li>
+          <li class="nav-item dropdown" data-controller="notifications">
+            <a href="#" class="nav-link notification-link" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-bell"></i>
+            <span id="notification-badge" class="badge bg-danger d-none" data-notifications-target="badge">!</span>
+            </a>
+            <ul id="notifications-list" class="dropdown-menu dropdown-menu-end">
+              <%= turbo_stream_from "notifications" %>
+              <li><p class="dropdown-item text-muted">No new notifications</p></li>
             </ul>
-          </div>
+          </li>
+
+          <% if controller_name == "pages" && action_name == "home" %>
+            <!-- Language Dropdown -->
+            <li class="nav-item dropdown me-3">
+              <a href="#" class="nav-link dropdown-toggle" id="languageDropdown"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                🌐
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                <li><%= link_to "🇬🇧 English", url_for(locale: :en), class: "dropdown-item" %></li>
+                <li><%= link_to "🇵🇹 Português", url_for(locale: :pt), class: "dropdown-item" %></li>
+                <li><%= link_to "🇪🇸 Español", url_for(locale: :es), class: "dropdown-item" %></li>
+                <li><%= link_to "🇫🇷 Français", url_for(locale: :fr), class: "dropdown-item" %></li>
+              </ul>
+            </li>
+          <% end %>
+
+              <!-- Initials Dropdown -->
+          <li class="nav-item dropdown">
+            <a href="#"
+              class="nav-link dropdown-toggle"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <div class="avatar-circle" style="background-color: <%= avatar_color(current_user) %>;">
+                <span class="initials">
+                  <%= "#{current_user.first_name[0]}#{current_user.last_name[0]}".upcase %>
+                </span>
+              </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li>
+                <%= link_to edit_user_registration_path(locale: I18n.locale), class: "dropdown-item" do %>
+                  <i class="far fa-user me-2"></i> My Account
+                <% end %>
+              </li>
+
+              <li>
+                <%= link_to destroy_user_session_path(locale: I18n.locale),
+                            data: {turbo_method: :delete},
+                            class: "dropdown-item" do %>
+                  <i class="far fa-arrow-right-from-bracket me-2"></i> Log out
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path(locale: I18n.locale), class: "btn btn-outline-primary login-button me-2" %>
+            <%= link_to "Sign Up", new_user_registration_path(locale: I18n.locale), class: "btn btn-primary signup-button" %>
+          </li>
         <% end %>
-
-        <!-- Initials Dropdown -->
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle text-decoration-none" id="navbarDropdown"
-            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="avatar-circle" style="background-color: <%= avatar_color(current_user) %>;">
-              <span class="initials">
-                <%= "#{current_user.first_name[0]}#{current_user.last_name[0]}".upcase %>
-              </span>
-            </div>
-          </a>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "My Account", edit_user_registration_path(locale: I18n.locale), class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path(locale: I18n.locale), data: {turbo_method: :delete}, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <div class="navbar-nav ms-auto">
-          <%= link_to "Login", new_user_session_path(locale: I18n.locale), class: "btn btn-outline-primary login-button me-2" %>
-          <%= link_to "Sign Up", new_user_registration_path(locale: I18n.locale), class: "btn btn-primary signup-button" %>
-        </div>
-      <% end %>
+      </ul>
     </div>
-
+  </div>
 </div>

@@ -114,6 +114,58 @@
     font-size: 16px;
   }
 
+  // Dropdown container
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  // Dropdown toggle button
+  .dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  // Dropdown menu
+  .dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    list-style: none;
+    min-width: 150px;
+    border-radius: 5px;
+    z-index: 1000;
+  }
+
+  // Dropdown menu items
+  .dropdown-menu li {
+    padding: 8px 20px;
+    white-space: nowrap;
+  }
+
+  .dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .dropdown-menu li a:hover {
+    background-color: #f1f1f1;
+  }
+
+  // Show menu on hover
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
   // Language dropdown
   .dropdown-toggle {
     background-color: transparent;
