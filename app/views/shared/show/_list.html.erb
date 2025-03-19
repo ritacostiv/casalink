@@ -1,0 +1,14 @@
+<% if properties.any? %>
+  <% properties.each do |property| %>
+    <div class="property-card">
+      <h3><%= property.name %></h3>
+      <p><strong>Price:</strong> €<%= property.price %></p>
+      <p><strong>Size:</strong> <%= property.size %> m²</p>
+      <p><strong>Typology:</strong> <%= property.typology %></p>
+      <p><strong>Elevator:</strong> <%= property.elevator ? "Yes" : "No" %></p>
+      <p><strong>Garage:</strong> <%= property.garage ? "Yes" : "No" %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>No properties match your filters.</p>
+<% end %>

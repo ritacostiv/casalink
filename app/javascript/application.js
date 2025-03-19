@@ -8,6 +8,7 @@ import * as bootstrap from "bootstrap"
 // import './components/animate_feature_row';
 // import './components/popup_card';
 
+
 document.addEventListener('turbo:load', function() {
   // Initialize tooltips
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
