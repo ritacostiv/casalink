@@ -16,11 +16,10 @@ export default class extends Controller {
       toggleButton.addEventListener("click", () => this.toggleFilterForm());
     }
 
-    // Attach real-time search functionality with debounce
     const searchBox = document.getElementById("search-box");
     if (searchBox) {
-      searchBox.addEventListener("input", (event) => {
-        debounce(() => this.filterBySearch(event.target.value), 300); // Debounced
+      searchBox.addEventListener("keyup", (event) => {
+        this.filterBySearch(event.target.value);
       });
     }
 
