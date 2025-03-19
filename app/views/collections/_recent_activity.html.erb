@@ -6,7 +6,7 @@
 
     <!-- Activity Item 1 -->
       <div class="activity-item">
-        <div class="avatar-circle" style="background-color: <%= avatar_color(event.user) %>;">
+        <div class="avatar-circle" style="background-color: <%= avatar_color(event.user) unless event.user.nil?  %>;">
           <span class="initials">
             <%= "#{event.user_first_name&.first}#{event.user_last_name&.first}".upcase %>
           </span>
@@ -51,5 +51,3 @@
     <p>No recent activity</p>
   </div>
 <% end %>
-
-
