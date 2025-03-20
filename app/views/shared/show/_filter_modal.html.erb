@@ -1,19 +1,22 @@
 <div data-controller="filter" class="filter-container">
 
-  <button type="button" id="toggle-sort-button" class="filter-toggle-button">Sort By</button>
+  <button type="button" id="toggle-sort-button" class="filter-toggle-button">Sort</button>
 
   <div id="sort-dropdown" class="sort-dropdown-container" style="display: none;">
-    <div class="sort-box">
+    <div class="sort-row">
       <!-- Order -->
       <fieldset class="sort-item">
         <legend>Order</legend>
-        <label>
-          <input type="radio" name="sort-order" value="asc" checked> Ascending
-        </label>
-        <label>
-          <input type="radio" name="sort-order" value="desc"> Descending
-        </label>
+        <div class="order-options">
+          <label>
+            <input type="radio" name="sort-order" value="asc" checked> Ascending
+          </label>
+          <label>
+            <input type="radio" name="sort-order" value="desc"> Descending
+          </label>
+        </div>
       </fieldset>
+
 
       <!-- Sort By -->
       <fieldset class="sort-item">
@@ -26,11 +29,15 @@
           <option value="elevator">Elevator</option>
         </select>
       </fieldset>
-    </div>
 
-  <!-- Apply Sort Button -->
-  <button type="button" id="apply-sort-button" class="apply-sort-button">Apply Sort</button>
-</div>
+      <!-- Apply Sort Button -->
+      <div class="sort-item">
+        <button type="button" id="apply-sort-button" class="apply-sort-button">Apply Sort</button>
+      </div>
+    </div>
+  </div>
+
+
 
 
   <!-- filter Toggle Button -->
