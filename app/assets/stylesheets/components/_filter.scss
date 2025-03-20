@@ -30,8 +30,6 @@
 
 fieldset {
   border: none;
-  margin: 0;
-  padding: 0;
 }
 
 legend {
@@ -52,16 +50,6 @@ select {
   font-size: 12px;
 }
 
-label {
-  display: block;
-  font-size: 12px;
-}
-
-// span {
-//   font-weight: bold;
-//   font-size: 12px;
-// }
-
 .apply-filters-button {
   background-color: #4280A4;
   color: white;
@@ -79,30 +67,11 @@ label {
 
 
 #typology {
-  width: 50px; /* Adjust the width for a smaller dropdown */
+  width: 60px; /* Adjust the width for a smaller dropdown */
   padding: 3px; /* Reduce padding for a compact look */
   font-size: 12px; /* Use a smaller font size */
   border-radius: 5px; /* Maintain rounded corners */
   border: 1px solid #ccc; /* Keep a clean border style */
-}
-
-.noUi-target {
-  background: #ddd;
-  border-radius: 4px;
-  height: 10px;
-  margin: 10px 0;
-}
-
-.noUi-handle {
-  background-color: #4280A4;
-  border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  cursor: grab;
-}
-
-.noUi-connect {
-  background: #4280A4;
 }
 
 #filter-form {
@@ -128,60 +97,65 @@ label {
   max-width: 100%; /* Ensure it can grow within its container */
 }
 
-.sort-dropdown-container {
-  display: none; /* Initially hidden */
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 15px;
-  margin-top: 10px;
-  width: 250px;
+/* SORT BOX AND ITEMS */
+.sort-row {
+  display: flex; /* Align items in a row */
+  gap: 10px; /* Space between items */
+  justify-content: space-between; /* Spread items across the row */
+  flex-wrap: wrap; /* Ensure responsiveness */
+  align-items: center; /* Align items vertically */
+  background-color: #f9f9f9; /* Match filter box background */
+  border: 1px solid #ccc; /* Match filter box border */
+  border-radius: 15px; /* Rounded corners like the filter box */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow like filter box */
+  padding: 15px; /* Inner spacing */
+  margin-bottom: 15px; /* Space below the box */
 }
 
-fieldset {
-  margin-bottom: 15px;
-  border: none;
-}
-
-legend {
-  font-weight: bold;
-  margin-bottom: 5px;
+.sort-item {
+  flex: 1; /* Equal space for all sort items */
+  min-width: 120px; /* Minimum width for smaller screens */
 }
 
 .sort-dropdown {
-  width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
+  width: 30%; /* Full width dropdown */
+  padding: 5px; /* Padding inside the dropdown */
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #ccc; /* Consistent border */
+  font-size: 12px; /* Match filter font size */
 }
 
+/* APPLY SORT BUTTON */
 .apply-sort-button {
   background-color: #4280A4; /* Button color */
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 8px 15px;
-  font-size: 16px;
+  border-radius: 5px; /* Rounded corners */
+  padding: 8px 15px; /* Consistent padding */
+  font-size: 14px; /* Font size matches filter button */
   cursor: pointer;
-  margin-bottom: 15px; /* Space between button and form */
-  align-self: flex-start; /* Align the button with the other items */
+  margin-top: 10px; /* Space above the button */
 }
 
 .apply-sort-button:hover {
   background-color: #4280A4; /* Darker hover effect */
 }
 
-.sort-box {
-  display: flex;
-  flex-direction: row; /* Horizontal layout */
-  gap: 20px; /* Space between items */
-  align-items: center; /* Align elements vertically */
-  margin-bottom: 15px; /* Spacing below the row */
+.legend {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 12px; /* Match filter box font size */
 }
 
-.sort-item {
+label {
   display: flex;
-  flex-direction: column; /* Keeps labels and inputs stacked vertically */
-  flex: 1; /* Ensure items share equal space */
+  align-items: center;
+  gap: 5px; /* Space between the radio input and label text */
+  font-size: 12px; /* Ensure consistent text size */
+}
+
+.order-options {
+  display: flex; /* Align items in a row */
+  gap: 10px; /* Space between radio buttons */
+  align-items: center; /* Vertically align items */
 }
