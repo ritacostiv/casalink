@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
 
     if @property.save
       create_event(:property_creation)
-      redirect_to collection_path(@collection), notice: "success"
+      redirect_to collection_path(@collection), notice: "Property added to #{@collection.name}"
     else
       render :new, status: :unprocessable_entity
     end
@@ -18,7 +18,7 @@ class PropertiesController < ApplicationController
     @property = @collection.properties.find(params[:id])
     create_event(:property_deletion)
     @property.destroy
-    redirect_to collection_path(@collection), notice: "Property deleted"
+    redirect_to collection_path(@collection), notice: "Property deleted from #{@collection.name}"
   end
 
   def show
