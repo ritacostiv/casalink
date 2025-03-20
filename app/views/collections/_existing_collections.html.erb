@@ -3,7 +3,9 @@
 <% collections.each do |collection| %>
 
   <div class="collection-card collection-existing">
+    <%= image_tag "lisbon.jpg", alt: "Collection image", class: "collection-image" %>
   <div class="existing-collection-blue">
+
     <div class="collection-meta">
       <%= pluralize(collection.properties.count, 'property') %> • Last updated <%= time_ago_in_words(collection.updated_at) %>
     </div>
