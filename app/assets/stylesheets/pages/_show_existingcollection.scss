@@ -88,6 +88,9 @@
 
 //Create New Collection Card///
 
+.new-collection-name-label {
+  font-size: 20px;
+}
 .create-new-collection-card {
   border-radius: 12px;
   border: 2px dashed #ddd;
@@ -138,7 +141,7 @@
   font-size: 16px;
 }
 
-//Existing//
+//Existing Collections//
 
 .edit-collection-icon {
   cursor: pointer;
