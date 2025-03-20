@@ -15,7 +15,7 @@ class CollectionsController < ApplicationController
     if @collection.save
       redirect_to collection_path(@collection), notice: "success"
     else
-      render :new, status: :unprocessable_entity
+      redirect_to collections_path, alert: "Please add a name to the collection"
     end
   end
 
@@ -26,7 +26,7 @@ class CollectionsController < ApplicationController
     @typologies = @properties.pluck(:typology).uniq.sort_by(&:to_i)
     @prices = @properties.pluck(:price).compact.map(&:to_f).uniq.sort
     @sizes = @properties.pluck(:size).compact.map(&:to_i).uniq.sort
-    
+
     # Build markers for the map
     @markers = @properties.map do |property|
       {
@@ -40,6 +40,6 @@ class CollectionsController < ApplicationController
   private
 
   def collection_params
-    params.require(:collection).permit(:name, :description)
+    params.require(:collection).permit(:name)
   end
 end

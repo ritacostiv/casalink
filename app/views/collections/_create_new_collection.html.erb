@@ -28,8 +28,7 @@
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <%= f.input :name, input_html: { class: 'new-collection-name-label' } %>
-        <%#= f.input :description %>
+        <%= f.input :name %>
     </div>
     <div class="modal-footer">
       <%= link_to "Cancel", collections_path, class:"btn btn-secondary", data: { "bs-dismiss" => "modal" } %>
