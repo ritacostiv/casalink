@@ -8,9 +8,9 @@ class CommentsController < ApplicationController
 
     if @comment.save
       create_event(:comment_creation)
-      redirect_to collection_path(@property.collection), notice: "Comment Added"
+      redirect_to collection_path(@property.collection)
     else
-      redirect_to collection_path(@property.collection), alert: "Failed to add comment"
+      redirect_to collection_path(@property.collection)
     end
   end
 
