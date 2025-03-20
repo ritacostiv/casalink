@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }.merge(super)
   end
 
-
-
   protected
 
   def configure_permitted_parameters
