@@ -24,12 +24,12 @@
     <!-- Simple form -->
     <%= simple_form_for @collection do |f| %>
     <div class="modal-header">
-      <h1 class="modal-title fs-5" id="exampleModalLabel">New Collection</h1>
+      <h1 class="modal-title fs-5" id="exampleModalLabel">Create New Collection</h1>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
-        <%= f.input :name %>
-        <%= f.input :description %>
+        <%= f.input :name, input_html: { class: 'new-collection-name-label' } %>
+        <%#= f.input :description %>
     </div>
     <div class="modal-footer">
       <%= link_to "Cancel", collections_path, class:"btn btn-secondary", data: { "bs-dismiss" => "modal" } %>
