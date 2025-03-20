@@ -21,6 +21,6 @@ Rails.application.routes.draw do
 
     # Add filter options route for properties
   get '/properties/filter_options', to: 'properties#filter_options'
-  
+
   get '/search', to: 'search#index', as: 'search'
 end

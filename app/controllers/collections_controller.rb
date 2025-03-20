@@ -15,7 +15,7 @@ class CollectionsController < ApplicationController
     if @collection.save
       redirect_to collection_path(@collection)
     else
-      render :new, status: :unprocessable_entity
+      redirect_to collections_path, alert: "Please add a name to the collection"
     end
   end
 
@@ -40,6 +40,6 @@ class CollectionsController < ApplicationController
   private
 
   def collection_params
-    params.require(:collection).permit(:name, :description)
+    params.require(:collection).permit(:name)
   end
 end
