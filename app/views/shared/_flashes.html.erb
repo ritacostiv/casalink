@@ -1,14 +1,27 @@
+<!-- app/views/shared/_flashes.html.erb -->
 <% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+  <div class="alert alert-success alert-dismissible fade show custom-branded-alert" role="alert">
+    <div class="alert-content">
+      <div class="logo-container">
+        <img src="<%= asset_path('logo.png') %>" class="brand-logo" alt="Logo">
+      </div>
+      <div class="alert-message">
+        <% if notice.include?("deleted") %>
+          <%= notice %>
+          <span class="delete-circle">×</span>
+        <% else %>
+          <%= notice %>
+          <span class="checkmark-circle">✓</span>
+        <% end %>
+      </div>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 <% end %>
+
 <% if alert %>
   <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
     <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 <% end %>

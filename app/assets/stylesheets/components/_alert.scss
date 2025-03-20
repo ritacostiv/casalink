@@ -1,6 +1,92 @@
-.alert {
+// app/assets/stylesheets/components/_alerts.scss //
+// .alert {
+//   position: fixed;
+//   bottom: 16px;
+//   right: 16px;
+//   z-index: 1000;
+// }
+
+
+// app/assets/stylesheets/components/_alerts.scss
+
+.custom-branded-alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #ebe7e3;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  padding: 30px;
+  color: #333;
+  z-index: 1050;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.alert-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-container {
+  margin-bottom: 20px;
+}
+
+.brand-logo {
+  width: 80px;
+  height: auto;
+  animation: pulse 1s ease-in-out;
+}
+
+.alert-message {
+  font-weight: 600;
+  font-size: 24px;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.checkmark-circle {
+  display: inline-flex;
+  margin-left: 10px;
+  background-color: #f89d35;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  animation: fadeIn 0.5s ease-in-out 0.5s both;
+  vertical-align: middle;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.delete-circle {
+  display: inline-flex;
+  margin-left: 10px;
+  background-color: #e63946; 
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  animation: fadeIn 0.5s ease-in-out 0.5s both;
+  vertical-align: middle;
 }
