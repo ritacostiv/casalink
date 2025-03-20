@@ -1,25 +1,22 @@
   <!-- app/views/shared/show/_header.html -->
 
   <!-- Header section -->
-<div  style="display: flex; align-items: center;">
-  <h1 style="font-size: 32px; margin: 0; color: #333; margin-right: 16px;"><%= collection.name %></h1>
-  <div style="display: flex; align-items: center;">
-    <%= render "shared/addproperty_button", collection: collection, property: Property.new %>
-    <%= render "shared/share_button", collection: collection %>
-  </div>
-</div>
-
-
-
-
-  <div style="display: flex; align-items: left; margin-bottom: 20px;">
-  </div>
-    <div style="display: flex; gap: 10px;">
+    <div  style="display: flex; align-items: center;">
+      <h1 style="font-size: 32px; margin: 0; color: #333; margin-right: 16px;"><%= collection.name %></h1>
+      <div style="display: flex; align-items: center;">
+        <%= render "shared/addproperty_button", collection: collection, property: Property.new %>
+        <%= render "shared/share_button", collection: collection %>
+      </div>
     </div>
 
-  <!-- Creator info -->
-  <div style="margin-bottom: 15px; color: #666;">
-    Created by <%= collection.user.first_name %> | <%= pluralize(collection.properties.count, "Property") %>  <a href="#" style="color: #3366cc; text-decoration: none;"></a>
-  </div>
 
-  
+    <div style="display: flex; align-items: left; margin-bottom: 20px;">
+    </div>
+      <div style="display: flex; gap: 10px;">
+      </div>
+
+    <!-- Creator info -->
+    <div style="margin-bottom: 15px; color: #666;">
+      Created by <%= collection.user.first_name %> | <%= pluralize(collection.properties.count, "Property") %>  <a href="#" style="color: #3366cc; text-decoration: none;"></a>
+    </div>
+
