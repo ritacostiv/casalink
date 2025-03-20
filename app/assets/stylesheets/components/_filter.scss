@@ -1,5 +1,5 @@
 .filter-toggle-button {
-  background-color: #27b6c6;; /* Button color */
+  background-color: #4280A4; /* Button color */
   color: white;
   border: none;
   border-radius: 5px;
@@ -10,7 +10,7 @@
 }
 
 .filter-toggle-button:hover {
-  background-color: #27b6c678; /* Darker hover effect */
+  background-color: #4280A4; /* Darker hover effect */
 }
 
 .filter-row {
@@ -50,9 +50,8 @@ select {
   font-size: 12px;
 }
 
-
 .apply-filters-button {
-  background-color: #27b6c6;;
+  background-color: #4280A4;
   color: white;
   border: none;
   border-radius: 5px;
@@ -63,7 +62,7 @@ select {
 }
 
 .apply-filters-button:hover {
-  background-color: #27b6c6;;
+  background-color: #4280A4;
 }
 
 
@@ -74,7 +73,6 @@ select {
   border-radius: 5px; /* Maintain rounded corners */
   border: 1px solid #ccc; /* Keep a clean border style */
 }
-
 
 #filter-form {
   border: 1px solid #ccc;
@@ -129,7 +127,7 @@ select {
 
 /* APPLY SORT BUTTON */
 .apply-sort-button {
-  background-color: #27b6c6; /* Same color as filter button */
+  background-color: #4280A4; /* Button color */
   color: white;
   border: none;
   border-radius: 5px; /* Rounded corners */
@@ -140,7 +138,7 @@ select {
 }
 
 .apply-sort-button:hover {
-  background-color: #27b6c678; /* Hover effect matches filter button */
+  background-color: #4280A4; /* Darker hover effect */
 }
 
 .legend {
