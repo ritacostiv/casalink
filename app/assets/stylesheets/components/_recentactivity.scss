@@ -73,7 +73,7 @@
 }
 
 .comment-hover {
-  cursor: zoom-in;
+  cursor: pointer;
   color:#f0a00c;
 }
 
@@ -88,20 +88,20 @@
   --bs-tooltip-arrow-height: 0.5rem; /* Bigger arrow */
   opacity: 1 !important;          /* Fully opaque */
   box-shadow: 0 20px 35px rgba(0,0,0,0.1); /* Softer shadow */
-  border: none;                   /* Remove border */
+  border: none;                   /* no border */
   border-radius: 12px !important; /* Rounded corners */
 }
 
 .tooltip-inner {
-  border-radius: 10px !important; /* Ensure inner content has rounded corners too */
+  border-radius: 10px !important; /* Inner content rounded corners too */
   background-color: white !important; /* Override Bootstrap's default */
   padding: 15px !important;       /* More padding */
 }
 
 .large-tooltip {
-  font-size: 16px !important;
+  font-size: 22px !important;
   text-align: left !important;
-  white-space: normal !important;  /* Allow text wrapping */
-  font-style: italic;              /* Italic text */
-  line-height: 1.5 !important;     /* Better line spacing */
+  white-space: normal !important;
+  font-style: italic;
+  line-height: 1.5 !important;
 }
