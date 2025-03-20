@@ -2,7 +2,7 @@
 <% if notice %>
   <div class="alert alert-success alert-dismissible fade show custom-branded-alert" role="alert">
     <div class="alert-content">
-      <div class="logo-container <%= notice.include?("deleted") ? 'no-animation' : 'with-animation' %>">
+      <div class="logo-container <%= notice.include?("deleted") || notice.include?("updated") ? 'no-animation' : 'with-animation' %>">
         <img src="<%= asset_path('logo.png') %>" class="brand-logo" alt="Logo">
       </div>
       <div class="alert-message">
