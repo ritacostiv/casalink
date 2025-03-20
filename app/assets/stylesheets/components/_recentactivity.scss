@@ -77,31 +77,29 @@
   color:#f0a00c;
 }
 
-
-
 .custom-tooltip-theme {
-  --bs-tooltip-bg: #ffffff;       /* White background */
-  --bs-tooltip-color: #333;       /* Dark text */
-  --bs-tooltip-max-width: 300px;  /* Wider tooltip */
-  --bs-tooltip-padding-x: 1rem;   /* More horizontal padding */
-  --bs-tooltip-padding-y: 0.8rem; /* More vertical padding */
-  --bs-tooltip-arrow-height: 0.5rem; /* Bigger arrow */
-  opacity: 1 !important;          /* Fully opaque */
-  box-shadow: 0 20px 35px rgba(0,0,0,0.1); /* Softer shadow */
-  border: none;                   /* Remove border */
-  border-radius: 12px !important; /* Rounded corners */
+  --bs-tooltip-bg: #ffffff;
+  --bs-tooltip-color: #333;
+  --bs-tooltip-max-width: 300px;
+  --bs-tooltip-padding-x: 1rem;
+  --bs-tooltip-padding-y: 0.8rem;
+  --bs-tooltip-arrow-height: 0.5rem;
+  opacity: 1 !important;
+  box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+  border: none;
+  border-radius: 12px !important;
 }
 
 .tooltip-inner {
-  border-radius: 10px !important; /* Ensure inner content has rounded corners too */
-  background-color: white !important; /* Override Bootstrap's default */
-  padding: 15px !important;       /* More padding */
+  border-radius: 10px !important;
+  background-color: white !important;
+  padding: 15px !important;
 }
 
 .large-tooltip {
   font-size: 16px !important;
   text-align: left !important;
-  white-space: normal !important;  /* Allow text wrapping */
-  font-style: italic;              /* Italic text */
-  line-height: 1.5 !important;     /* Better line spacing */
+  white-space: normal !important;
+  font-style: italic;
+  line-height: 1.5 !important;
 }

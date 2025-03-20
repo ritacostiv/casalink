@@ -10,21 +10,15 @@ import * as bootstrap from "bootstrap"
 
 
 document.addEventListener('turbo:load', function() {
-  // Initialize tooltips
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl, {
+  console.log('Initializing tooltips');
+
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+    new bootstrap.Tooltip(el, {
       template: '<div class="tooltip custom-tooltip-theme" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner large-tooltip"></div></div>',
       html: true,
       animation: true,
       delay: { show: 50, hide: 100 },
       placement: 'top'
-    })
-  })
-
-  // // Initialize dropdowns
-  // var dropdownTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="dropdown"]'))
-  // var dropdownList = dropdownTriggerList.map(function (dropdownTriggerEl) {
-  //   return new bootstrap.Dropdown(dropdownTriggerEl)
-  // })
-})
+    });
+  });
+});
