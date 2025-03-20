@@ -13,7 +13,7 @@ class CollectionsController < ApplicationController
     @collection.user = current_user
 
     if @collection.save
-      redirect_to collection_path(@collection), notice: "success"
+      redirect_to collection_path(@collection)
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,7 @@ class CollectionsController < ApplicationController
     @typologies = @properties.pluck(:typology).uniq.sort_by(&:to_i)
     @prices = @properties.pluck(:price).compact.map(&:to_f).uniq.sort
     @sizes = @properties.pluck(:size).compact.map(&:to_i).uniq.sort
-    
+
     # Build markers for the map
     @markers = @properties.map do |property|
       {
