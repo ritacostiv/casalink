@@ -1,20 +1,22 @@
 <!-- app/views/shared/show/_comment_modal.html.erb -->
 <div class="modal fade" id="commentModal<%= property.id %>" tabindex="-1" aria-labelledby="commentModalLabel<%= property.id %>" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius: 10px; border: 1px solid #ebe7e3; box-shadow: 0 20px 40px rgba(0,0,0,0.25);">
       <div class="modal-header">
         <h5 class="modal-title" id="commentModalLabel<%= property.id %>">Comments for <%= property.name %></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+
       <div class="modal-body">
         <!-- Comment form -->
         <div class="comment-form mb-3">
           <h6>Add a comment</h6>
           <%= form_with(model: [property, comment]) do |f| %>
             <div class="form-group">
-              <%= f.text_area :text, class: "form-control", placeholder: "Write your comment here...", rows: 3, required: true, style: "width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 12px;" %>
+              <%= f.text_area :text, class: "form-control", rows: 3, required: true, style: "width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 12px;" %>
             </div>
-            <%= f.submit "Post Comment", class: "btn btn-primary" %>
+            <div style="text-align: right;">
+            <%= f.submit "Post Comment", class: "btn btn-primary" %> </div>
           <% end %>
         </div>
 
@@ -35,7 +37,7 @@
             <% end %>
           </div>
         <% else %>
-          <p style="color: #666; font-style: italic;">No comments yet. Be the first to comment!</p>
+          <p style="color: #666; font-style: italic;"></p>
         <% end %>
       </div>
       <div class="modal-footer">
