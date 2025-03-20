@@ -39,7 +39,7 @@
 .brand-logo {
   width: 80px;
   height: auto;
-  animation: pulse 1s ease-in-out;
+  //animation: pulse 1s ease-in-out;
 }
 
 .alert-message {
@@ -89,4 +89,12 @@
   font-size: 16px;
   animation: fadeIn 0.5s ease-in-out 0.5s both;
   vertical-align: middle;
+}
+
+.logo-container.with-animation .brand-logo {
+  animation: pulse 1s ease-in-out;
+}
+
+.logo-container.no-animation .brand-logo {
+  /* No animation */
 }
