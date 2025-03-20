@@ -1,6 +1,7 @@
 .hero {
   position: relative; /* Ensure absolute positioning of lines works */
   overflow: hidden; /* Prevent lines from overflowing outside */
+  background-color: #FAF9F4;
 
   .line {
     position: absolute;
@@ -70,4 +71,3 @@
     opacity: 1; /* End fully visible */
   }
 }
-
