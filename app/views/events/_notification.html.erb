@@ -1,5 +1,18 @@
 <li>
-  <a class="dropdown-item" href="<%= event.url %>">
-    <strong><%= event.user_first_name %></strong> <%= event.event_type.humanize %>
+  <a class="dropdown-item">
+    <strong><%=event.user_first_name%></strong>
+    <% case event.event_type %>
+      <% when "property_creation" %>
+      <span>added a property</span>
+
+      <% when "comment_creation" %>
+      <span>commented on a property</span>
+
+      <% when "property_update" %>
+      <span>edited a property </span>
+
+      <% when "property_deletion" %>
+      <span>deleted a property</span>
+    <% end %>
   </a>
 </li>
