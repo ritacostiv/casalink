@@ -1,49 +1,25 @@
 .hero {
-  position: relative; /* Ensure absolute positioning of lines works */
-  overflow: hidden; /* Prevent lines from overflowing outside */
+  position: relative;
+  overflow: hidden;
   background-color: #FAF9F4;
 
   .line {
     position: absolute;
-    height: 2px; /* Thick lines */
-    background-color: #ea8825; /* Black lines */
-    animation: slide-animation 2s ease-out forwards; /* Shared animation settings */
+    height: 2px;
+    background-color: #ea8825;
+    animation: none; 
   }
 
-  /* Top Line: Sliding from left to right */
   .top-line {
     top: 0;
     left: 0;
-    width: 0; /* Start with no width */
-    animation-name: slide-left-to-right;
+    width: 100%; /* Full width from the start */
   }
 
-  /* Bottom Line: Sliding from right to left */
   .bottom-line {
     bottom: 0;
     right: 0;
-    width: 0; /* Start with no width */
-    animation-name: slide-right-to-left;
-  }
-
-  /* Keyframes for the top line */
-  @keyframes slide-left-to-right {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 100%; /* Fully span the width of the hero section */
-    }
-  }
-
-  /* Keyframes for the bottom line */
-  @keyframes slide-right-to-left {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 100%; /* Fully span the width of the hero section */
-    }
+    width: 100%; /* Full width from the start */
   }
 }
 
@@ -52,22 +28,13 @@
 
   h1 {
     position: relative;
-    animation: fade-in 3.5s ease-out forwards;
+    opacity: 1;
+    animation: none;
   }
 
   h3 {
     position: relative;
-    animation: fade-in 6s ease-out forwards; /* Slight delay for h3 */
-    // animation-delay: 2.5s; /* Optional: Makes h3 fade in after h1 */
-  }
-}
-
-/* Keyframes for Fading In */
-@keyframes fade-in {
-  0% {
-    opacity: 0; /* Start fully invisible */
-  }
-  100% {
-    opacity: 1; /* End fully visible */
+    opacity: 1;
+    animation: none;
   }
 }
