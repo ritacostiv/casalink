@@ -1,8 +1,8 @@
 .feature-row {
   position: relative;
-  opacity: 0; /* Start invisible */
-  transform: translateX(100%); /* Start off-screen to the right */
-  animation: slide-in 1.5s ease-out forwards; /* Animate into place */
+  opacity: 1; /* Change from 0 to 1 to make visible immediately */
+  transform: translateX(0); /* Change from translateX(100%) to keep in place */
+  animation: none; /* Remove the animation completely */
 }
 
 /* Keyframes for sliding in */

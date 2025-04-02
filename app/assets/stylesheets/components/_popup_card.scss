@@ -14,29 +14,18 @@
 .card-container {
   background: rgba(22, 22, 22, 0.0); /* White with transparency */
   padding: 30px; /* Internal spacing */
-  width: 200px; /* Starting width */
+  width: 1050px; /* Final width immediately */
   height: 300px; /* Fixed height */
   max-width: 90%; /* Responsive for smaller screens */
   // box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Initial shadow (none) */
-  transform: scale(1); /* Full size */
-  animation: grow-width 3s ease forwards, box-shadow-animation 1.5s ease 2s forwards; /* Chain animations */
+  //transform: scale(1); /* Full size */
 }
 
-/* Keyframes for the card's width */
-@keyframes grow-width {
-  0% {
-    width: 200px; /* Start with the initial width */
-  }
-  100% {
-    width: 1050px; /* End with the full size */
-  }
-}
-
+/* Keyframes can be removed if you want */
 
 .hero-cta .btn {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.0); /* Same shadow as the card */
-  padding: 15px 30s s
-  px; /* Adjust padding for a more balanced size */
+  padding: 15px 30px; /* Fixed padding syntax */
   border: none; /* Remove any default button borders */
   background: #ff9d00; /* Adjust as per your button color */
   color: #fff; /* Button text color */
@@ -44,8 +33,7 @@
   font-size: 16px; /* Consistent, readable text size */
   cursor: pointer; /* Pointer cursor on hover */
   transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
-  opacity: 0; /* Initially hidden */
-  animation: fade-in 5.0s ease 1.0s forwards; /* Fade-in animation with 2s delay */
+  opacity: 1; /* Fully visible immediately */
 }
 
 .hero-cta .btn:hover {
@@ -53,27 +41,6 @@
   transform: translateY(-2px); /* Subtle lift effect */
 }
 
-/* Fade-in Animation */
-@keyframes fade-in {
-  0% {
-    opacity: 0; /* Start hidden */
-  }
-  100% {
-    opacity: 1; /* Fully visible */
-  }
-}
-
 .card-container h3 {
-  opacity: 0; /* Start hidden */
-  animation: fade-in-h3 6s ease 0.7s forwards; /* Fade in after a 3s delay */
-}
-
-/* Keyframes for h3 Fade-in */
-@keyframes fade-in-h3 {
-  0% {
-    opacity: 0; /* Completely hidden */
-  }
-  100% {
-    opacity: 1; /* Fully visible */
-  }
+  opacity: 1; /* Fully visible immediately */
 }
